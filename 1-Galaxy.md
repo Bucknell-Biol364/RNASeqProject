@@ -35,12 +35,6 @@
    - Double check that you have R1 for Mate pair 1, R2 for Mate pair 2, and both come from the same sample
    - Click `Execute`
 8. Now set up the other three paired samples. (You can fill up the queue and then make a sammich while you wait.)
-9. 
-
-
-## Brooks et al. 
-Conservation of an RNA regulatory map between Drosophila and mammals
-https://genome.cshlp.org/content/21/2/193.full
 
 ### Samples
 Untreated samples: 
@@ -54,7 +48,3 @@ RNAi-treated samples
 + SRR031718 http://www.ncbi.nlm.nih.gov/Traces/sra/?run=SRR031718
 + SRR031724 http://www.ncbi.nlm.nih.gov/Traces/sra/?run=SRR031724
 + SRR031726 http://www.ncbi.nlm.nih.gov/Traces/sra/?run=SRR031726
-
-## Williams et al. 2017
-Empirical assessment of analysis workflows for differential expression analysis of human samples using RNA-Seq
-https://doi.org/10.1186/s12859-016-1457-z
