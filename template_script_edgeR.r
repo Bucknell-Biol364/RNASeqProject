@@ -46,6 +46,13 @@ forceCairoGraph <- FALSE
 ################################################################################
 setwd(workDir)
 
+if (!require("BiocManager")) install.packages("BiocManager"); library(BiocManager)
+if (!require("DESeq2")) BiocManager::install("DESeq2"); library(DESeq2)
+if (!require("edgeR")) BiocManager::install("edgeR"); library(edgeR)
+if (!require("genefilter")) BiocManager::install("genefilter"); library(genefilter)
+
+# PC Users only, install Rtools https://cran.r-project.org/bin/windows/Rtools/
+
 if (!require("devtools")) install.packages("devtools"); library(devtools)
 if (!require("SARTools")) install_github("KField-Bucknell/SARTools", build_vignettes=TRUE, force=TRUE); library(SARTools)
 
