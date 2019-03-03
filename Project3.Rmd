@@ -30,6 +30,7 @@ Go to Tools > Shell, and enter the address of the upstream repository
 
 `git remote add upstream https://github.com/Bucknell-Biol364/RNASeqProject.git`
 
+<<<<<<< HEAD
 Make sure that it worked by typing `git remote -v` in the shell.
 It should display 4 lines, 2 that start with `origin` and the address of your fork, and 2 that start with `upstream` and the address of the upstream repository. 
 Note that here we used `upstream` to name the upstream repository but we could have given it another name. 
@@ -39,6 +40,8 @@ Now switch back to R Studio and create a new **branch** to store your changes so
 Click `New Branch` in the Git tab.
 Name it test-branch or something relevant for the changes you plan.
 
+=======
+>>>>>>> 42ef1e1c641f66ccd98824bff2d099c938e06d9e
 Edit the Test.txt file by adding a line or two and save it.
 You should now be able to Commit and Push this change to Github. 
 However, you have **NOT** changed the class repo, only your own account's copy of it. 
