@@ -1,0 +1,22 @@
+---
+title: "Project 3"
+author: "Transcriptomics Noob"
+date: "3/3/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Collaboration with Git
+
+For this project, all members of the class will be working on the same git repo. 
+This could pose all kinds of problems for pushing changes, if we don't follow the proper process of forking the repo. 
+This tutorial is adapted from <http://r-bio.github.io/intro-git-rstudio/>.
+
+### Branching
+
+We will each create a branch of the RNASeqProject repo on the <https://github.com/Bucknell-Biol364/RNASeqProject> page.
+On the top right, click `Fork`. 
+Then click your personal Github repo, to create the branch there.
