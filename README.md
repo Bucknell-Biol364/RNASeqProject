@@ -6,7 +6,7 @@ https://galaxy.bucknell.edu
 
 # Tutorials
 1. [Galaxy](1-Galaxy.md)
-2. SARTools
+2. [SARTools](2-SARTools.md)
 
 ## Brooks et al. 
 Conservation of an RNA regulatory map between Drosophila and mammals

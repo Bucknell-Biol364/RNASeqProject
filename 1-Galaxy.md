@@ -35,6 +35,17 @@
    - Double check that you have R1 for Mate pair 1, R2 for Mate pair 2, and both come from the same sample
    - Click `Execute`
 8. Now set up the other three paired samples. (You can fill up the queue and then make a sammich while you wait.)
+   - When they are complete verify that each of the pseudoalignment runs ran properly.
+      - Click on the results in the History panel to view the first 5 lines of the file.
+      - Verify that there are values in the TPM and NumReads columns (click the View Data icon to see all the data if needed).
+      - Click the View Details (i) icon to see the parameters used for the analysis.
+      - Follow the `stdout` and `stderr` links to view the output generated during the analysis.
+      - Under Tool Parameters verify which trimmed read file(s) were used.
+9. Download each file and rename it.
+   - As you check the read file, copy the sample name from the trimmed file name.
+   - Click download :floppy_disk: and then find the downloaded file and rename it Sample_Name.tsv (no spaces or symbols)
+      - Name the Gene Quantification files Sample_Name.genes.tsv and the Quantification files Sample_Name.transcripts.tsv
+   - After you have downloaded all of the results files and renamed them, start the [SARTools Tutorial](2-SARTools.md)
 
 ### Samples
 Untreated samples: 
