@@ -30,7 +30,6 @@ Go to Tools > Shell, and enter the address of the upstream repository
 
 `git remote add upstream https://github.com/Bucknell-Biol364/RNASeqProject.git`
 
-<<<<<<< HEAD
 Make sure that it worked by typing `git remote -v` in the shell.
 It should display 4 lines, 2 that start with `origin` and the address of your fork, and 2 that start with `upstream` and the address of the upstream repository. 
 Note that here we used `upstream` to name the upstream repository but we could have given it another name. 
@@ -40,11 +39,10 @@ Now switch back to R Studio and create a new **branch** to store your changes so
 Click `New Branch` in the Git tab.
 Name it test-branch or something relevant for the changes you plan.
 
-=======
->>>>>>> 42ef1e1c641f66ccd98824bff2d099c938e06d9e
+Make sure that you are in the new test-branch (upper right of the Git tab).
 Edit the Test.txt file by adding a line or two and save it.
 You should now be able to Commit and Push this change to Github. 
-However, you have **NOT** changed the class repo, only your own account's copy of it. 
+However, you have **NOT** changed the class repo, or even your own origin branch, only your test-branch copy of it. 
 You can use this personal copy to perform your analysis and to Commit and Push changes as often as you like. 
 The stakes are higher now, because eventually you will be merging your personal copy with the class master copy. 
 Two new best practices should be followed:
@@ -54,3 +52,34 @@ Two new best practices should be followed:
 
 The exception to this second rule will be Test.txt because we want to create some git conflicts.
 After pushing the changes to Test.txt to your personal repo, go back to github.com and refresh the page showing this repo. 
+
+When you are done making changes to Test.txt, make sure they have been Committed and Pushed.
+Go to GitHub to view your fork. 
+You can select which branch you are viewing using the Branch button.
+Switch to the test-branch and click the green `Pull request` button.
+Follow the instructions (leaving informative comments) to merge the branches by creating a pull request.
+Then approve the Pull request to complete the merge.
+
+## Lab 8
+
+For lab this week you will complete the [Galaxy](1-Galaxy.md) and [SARTools](2-SARTools.md) tutorials. 
+You should branch your personal copy of the repo for the lab and then merge it into your master copy when you are done with the analysis.
+
+## Project 3
+
+### Objectives:
+
+1. Perform a differential expression analysis pipeline for RNASeq
+2. Understand the differences between read mapping and pseudoalignment
+3. Compare different analysis options for measuring differential expression
+4. Collaborate as a large group to compare 13 different analysis pipelines
+
+### Tasks:
+
+- [ ]  Complete the [Galaxy Tutorial](1-Galaxy.md) using Salmon pseudoalignment
+- [ ]  Complete the [SARTools Tutorial](2-SARTools.md) using DESeq2 differential expression analysis
+- [ ]  Repeat the SARTools analysis incorporating batch correction
+- [ ]  Compare the results of the SARTools analysis at the gene and transcript level
+- [ ]  Complete a different analysis pipeline and compare the results
+- [ ]  Collaborate to complete a report comparing the results from all analysis pipelines
+
