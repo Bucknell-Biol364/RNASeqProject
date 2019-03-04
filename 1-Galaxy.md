@@ -8,21 +8,22 @@
 3. Transfer the trimmed reads from the Data Library
    - Click on `Shared Data`... `Data Libraries`
    - Select "RNASeq Group Project" and then choose all of the files.
-   - Click `To History`, `as Datasets`, and then `Import`
+   - Click `To History`, `as Datasets`, create a new history called "Lab 08", and then `Import`
    - Click on the Galaxy logo in the top left to return to the Analysis page.
-   - The data files should be in the History panel on the right.
+   - The data files should be in the History panel on the right. 
+   - If you need to change histories, click the `View All Histories` icon in the top right of the History panel.
 4. Pseudoaligning the reads to a transcriptome
    - In the tool panel, search for Salmon
    - Select the following options for Salmon
-     - Use a built-in index? Use one from the history
-     - Select the reference transcriptome: Drosophila_melanogaster.BDGP6.cdna.all.fa.gz
-     - kmerLen: 21
-     - Is this library mate-paired? Single-end
-     - FASTQ/FASTA file: Trimmomatic on S2_DRSC_Untreated-1
-     - Specify the strandedness of the reads: Not stranded (U)
-     - File containing a mapping of transcripts to genes: Drosophila_melanogaster.BDGP6.95.chr.gtf.gz
+     - *Use a built-in index?* Use one from the history
+     - *Select the reference transcriptome:* Drosophila_melanogaster.BDGP6.cdna.all.fa.gz
+     - *kmerLen:* 21
+     - *Is this library mate-paired?* Single-end
+     - *FASTQ/FASTA file:* Trimmomatic on S2_DRSC_Untreated-1
+     - *Specify the strandedness of the reads:* Not stranded (U)
+     - *File containing a mapping of transcripts to genes:* Drosophila_melanogaster.BDGP6.95.chr.gtf.gz
    - Leave all of the other options as the defaults, and click `Execute`
-5. After that job successfully runs on BisonNet, click the 'Eye' icon to view the results.
+5. After that job successfully runs on BisonNet, click the `Eye` icon to view the results.
    - You should see two results files, one for genes and the other for transcripts.
    - Each should have a 5 column table that includes the transcripts per million mapped reads (TPM) and the number of reads (numReads) mapped to each gene/transcript.
 6. Click one of the results files in the History panel and then click `Run this job again` :arrows_counterclockwise:.
