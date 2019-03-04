@@ -10,11 +10,7 @@ Help for SARTools, including installation, can be found at https://github.com/PF
 
 ## Tutorial
 
-<<<<<<< HEAD
 1. Make a SARTools folder within your local repo directory and place the following files from the [RNASeqProject](https://github.com/Bucknell-Biol364/RNASeqProject) repo within it:
-=======
-1. Make a SARTools folder within your local repo directory and place the following files from the [RNASeqProject]{https://github.com/Bucknell-Biol364/RNASeqProject} repo within it:
->>>>>>> 81fc4f9b1fbfae46836f2dd0868d926b9107117f
    - The transcripts.target.txt and genes.target.txt files
    - The template_script_DESeq2.r file
    - Also move the transcripts.tsv and genes.tsv files that you downloaded in Part 1 into this folder
