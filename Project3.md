@@ -44,7 +44,8 @@ Project 3
 1.  Perform a differential expression analysis pipeline for RNASeq
 2.  Understand the differences between read mapping and pseudoalignment
 3.  Compare different analysis options for measuring differential expression
-4.  Collaborate as a large group to compare 13 different analysis pipelines
+4.  Use an R vignette to closely examine an RNASeq analysis pipeline
+5.  Collaborate as a large group to compare 13 different analysis pipelines
 
 ### Tasks:
 
@@ -54,3 +55,22 @@ Project 3
 -   \[ \] Compare the results of the SARTools analysis at the gene and transcript level
 -   \[ \] Complete a different analysis pipeline and compare the results
 -   \[ \] Collaborate to complete a report comparing the results from all analysis pipelines
+
+### Pipelines:
+
+bowtie2-&gt;DESeq2 bowtie2-&gt;edgeR bowtie2-&gt;limma kallisto-&gt;DESeq2 1 1 1 1 kallisto-&gt;edgeR kallisto-&gt;limma Salmon-&gt;DESeq2 Salmon-&gt;edgeR 1 1 1 1 Salmon-&gt;limma STAR-&gt;DESeq2 STAR-&gt;edgeR STAR-&gt;limma 1 1 1 1
+
+|    X| Name              | Github.Username | Email.Address         | Pipeline            |
+|----:|:------------------|:----------------|:----------------------|:--------------------|
+|    1| Chad Sussman      | chadsussman     | <cbs019@bucknell.edu> | kallisto-&gt;DESeq2 |
+|    2| Cheyenne Moore    | cheyennelmoore  | <clm044@bucknell.edu> | bowtie2-&gt;limma   |
+|    3| Cheyenne McKinley | cheymcki        | <cnm006@bucknell.edu> | Salmon-&gt;limma    |
+|    4| Katie Bille       | KateBille       | <crm037@bucknell.edu> | bowtie2-&gt;DESeq2  |
+|    5| Emily Konishi     | emilyjkonishi   | <ejk016@bucknell.edu> | Salmon-&gt;DESeq2   |
+|    6| Julie Berhane     | jfberhane       | <jfb026@bucknell.edu> | kallisto-&gt;edgeR  |
+|    7| Ian Vogel         | ianvogel        | <irv001@bucknell.edu> | STAR-&gt;DESeq2     |
+|    8| Justin Koss       | jkoss6          | <jak074@bucknell.edu> | STAR-&gt;edgeR      |
+|    9| Jordan Simpson    | jssimpson20     | <jss052@bucknell.edu> | kallisto-&gt;limma  |
+|   10| Katie Edwards     | kme012          | <kme012@bucknell.edu> | Salmon-&gt;edgeR    |
+|   11| Megan Ritter      | mnr006          | <mnr006@bucknell.edu> | STAR-&gt;limma      |
+|   12| Matt McGauley     | mwm021          | <mwm021@bucknell.edu> | bowtie2-&gt;edgeR   |
