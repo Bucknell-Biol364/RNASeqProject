@@ -74,7 +74,8 @@ You should branch your personal copy of the repo for the lab and then merge it i
 1. Perform a differential expression analysis pipeline for RNASeq
 2. Understand the differences between read mapping and pseudoalignment
 3. Compare different analysis options for measuring differential expression
-4. Collaborate as a large group to compare 13 different analysis pipelines
+4. Use an R vignette to closely examine an RNASeq analysis pipeline
+5. Collaborate as a large group to compare 13 different analysis pipelines
 
 ### Tasks:
 
@@ -85,3 +86,23 @@ You should branch your personal copy of the repo for the lab and then merge it i
 - [ ]  Complete a different analysis pipeline and compare the results
 - [ ]  Collaborate to complete a report comparing the results from all analysis pipelines
 
+### Pipelines:
+
+```{r echo=FALSE, results='asis'}
+library(knitr)
+Biol364_664roster <- read.csv("Biol364_664roster.csv", stringsAsFactors=FALSE)
+Biol364_664roster$Pipeline <- c("kallisto->DESeq2",
+                    "bowtie2->limma",
+                    "Salmon->limma",
+                    "bowtie2->DESeq2",
+                    "Salmon->DESeq2",
+                    "kallisto->edgeR",
+                    "STAR->DESeq2",
+                    "STAR->edgeR",
+                    "kallisto->limma",
+                    "Salmon->edgeR",
+                    "STAR->limma",
+                    "bowtie2->edgeR")
+table(Biol364_664roster$Pipeline)
+kable(Biol364_664roster)
+```
