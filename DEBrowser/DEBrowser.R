@@ -10,11 +10,7 @@ BiocManager::install("debrowser")
 
 library(debrowser)
 
-# 3. Start DEBrowser
-
-startDEBrowser()
-
-# Prepare data for DEBrowser
+# 3. Prepare data for DEBrowser
 
 if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
@@ -43,4 +39,25 @@ transcriptfiles %>%
 colnames(transcripttable)[2:7] <- as.list(samplenames)
 
 head(transcripttable)
+str(transcripttable)
 write_tsv(transcripttable, path="transcripttable.tsv")
+
+## Also need to reformat the target.txt file to match the sample names
+transcripts_target <- read_delim("SARTools/transcripts.target.txt", 
+                                 "\t", escape_double = FALSE, trim_ws = TRUE)
+transcripts_target
+colnames(transcripttable) <- gsub("-","_", colnames(transcripttable))
+colnames(transcripttable)
+transcripts_target$label[1:3] <- colnames(transcripttable)[5:7]
+transcripts_target$label[4:6] <- colnames(transcripttable)[2:4]
+metadata <- select(transcripts_target, c(label, batch, Treatment))
+colnames(metadata) <- c("sample","batch","condition")
+write_tsv(metadata, path="metadata.tsv")
+metadata
+
+colnames(transcripttable) %in% metadata$sample
+
+
+# 4. Start DEBrowser
+
+startDEBrowser()
