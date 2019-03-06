@@ -83,7 +83,7 @@ You should branch your personal copy of the repo for the lab and then merge it i
 - [ ]  Complete the [SARTools Tutorial](2-SARTools.md) using DESeq2 differential expression analysis
 - [ ]  Repeat the SARTools analysis incorporating batch correction
 - [ ]  Compare the results of the SARTools analysis at the gene and transcript level
-- [ ]  Complete a different analysis pipeline and compare the results
+- [ ]  Complete a different analysis pipeline and compare the results using [DE Browser](DEBrowser/DEBrowser.R)
 - [ ]  Collaborate to complete a report comparing the results from all analysis pipelines
 
 ### Pipelines:
