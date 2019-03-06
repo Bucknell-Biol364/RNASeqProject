@@ -15,7 +15,7 @@ Help for SARTools, including installation, can be found at https://github.com/PF
    - The template_script_DESeq2.r file
    - Also move the transcripts.tsv and genes.tsv files that you downloaded in Part 1 into this folder
 2. Within R Studio open template_script_DESeq2.r
-   - Do this within your main Biol364 R Project (not your fork of the RNASeqProject)
+   - Do this within your personal Biol364 R Project
    - Create a new folder called SARTools.DESeq2.genes
    - Use File... Save As... to rename the script to YourName_genes_SARTools_DESeq2.r and save it in the folder you just created
 3. Edit the following lines in the R script
@@ -37,8 +37,8 @@ Help for SARTools, including installation, can be found at https://github.com/PF
    - Close the target.txt and tsv files
 5. Running the SARTools R script
     - We are using a customized SARTools package that is a branch I have created from the master SARTools repo
-       - To use the master branch, change "KField-Bucknell/SARTools" to "PF2-pasteur-fr/SARTools"
-       - If you change to the master SARTools, you will need to change to the appropriate template script as well
+       - This version is installed from "KField-Bucknell/SARTools" 
+       - If you needed to run the original version, you would change that to "PF2-pasteur-fr/SARTools" and you will need to change to the appropriate template script as well. Do not change from the Bucknell version for this tutorial.
    - Save the edited script
    - Position the cursor at the top of the Script and type command-enter (or ctrl-enter) to run one line at a time
    - Watch the outpout in the Console to make sure that you catch any errors (some warnings are expected):
