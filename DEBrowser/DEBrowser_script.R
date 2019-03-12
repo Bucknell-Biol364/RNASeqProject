@@ -26,7 +26,7 @@ samplenames
 genefiles
 genefiles %>%
   bind_cols() %>%
-  select(gene_id, starts_with("expected_counts")) -> genetable
+  select(gene_id, starts_with("expected_count")) -> genetable
 colnames(genetable)[2:7] <- as.list(samplenames) 
 
 
@@ -38,7 +38,7 @@ transcriptfiles <- lapply(transcriptfilelist, read_tsv)
 
 transcriptfiles %>%
   bind_cols() %>%
-  select(Name, starts_with("NumReads")) -> transcripttable
+  select(transcript_id, starts_with("expected_count")) -> transcripttable
 colnames(transcripttable)[2:7] <- as.list(samplenames)
 
 head(transcripttable)
