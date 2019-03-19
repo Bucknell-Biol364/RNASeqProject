@@ -14,22 +14,32 @@ library(debrowser)
 
 if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
+# List the count files. You may need to change the path and pattern to match your files.
 genefilelist <- list.files(path="SARTools", pattern="*.genes.tsv", full.names=T)
+print(genefilelist)
 genefiles <- lapply(genefilelist, read_tsv)
+
+# Use grep to change the file names into shorter sample names
 samplenames <- gsub("SARTools/S2_DRSC_CG8144_", "", genefilelist)
 samplenames <- gsub("SARTools/S2_DRSC_","", samplenames)
 samplenames <- gsub(".genes.tsv", "", samplenames)
 samplenames <- gsub("-","_", samplenames) # DEBrowser doesn't like -
 samplenames
 
+# Reformat the gene files into a single data frame
 genefiles
 genefiles %>%
   bind_cols() %>%
   select(Name, starts_with("NumReads")) -> genetable
+
+# Rename the columns of the genetable to match the sample names
 colnames(genetable)[2:7] <- as.list(samplenames)
 
+# Check the genetable and save it
 head(genetable)
 write_tsv(genetable, path="genetable.tsv")
+
+### Now repeat all of that for the transcript files
 
 transcriptfilelist <- list.files(path="SARTools", pattern="*.transcripts.tsv", full.names=T)
 transcriptfiles <- lapply(transcriptfilelist, read_tsv)
