@@ -1,6 +1,0 @@
-Another test of the branch!
-
-This file will be used to test Branching and Pull Requests.
-
-This change is being made on the test-branch.
-
