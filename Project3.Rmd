@@ -97,11 +97,11 @@ Biol364_664roster$Pipeline <- c("kallisto->DESeq2",
                     "bowtie2->DESeq2",
                     "Salmon->DESeq2",
                     "kallisto->edgeR",
-                    "STAR->DESeq2",
-                    "STAR->edgeR",
+                    "Sailfish->DESeq2",
+                    "Sailfish->edgeR",
                     "kallisto->limma",
                     "Salmon->edgeR",
-                    "STAR->limma",
+                    "Sailfish->limma",
                     "bowtie2->edgeR")
 table(Biol364_664roster$Pipeline)
 kable(Biol364_664roster)
