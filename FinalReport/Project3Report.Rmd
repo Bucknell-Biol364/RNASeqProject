@@ -51,8 +51,14 @@ iris %>%
 
 ##My results
 Here is where I can describe the results
-```{r iris-picture} 
+
+
+```{r Ritter Adding gene-picture} 
 knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+```
+
+```{r Ritter Uploading gene table}
+sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv", header=TRUE) 
 ```
 
 # Jordan Simpson
