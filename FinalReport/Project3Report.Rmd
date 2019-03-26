@@ -47,7 +47,7 @@ iris %>%
 My pipeline was sailfish to edgeR.
 
 ```{r}
-knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 ```
 
 ```{r}
