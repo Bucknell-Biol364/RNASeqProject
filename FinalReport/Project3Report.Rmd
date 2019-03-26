@@ -40,13 +40,6 @@ iris %>%
 ```
 
 
-# Ken Field
-
-## My Results
-
-Here is where I can describe results.
-=======
-
 
 # Justin Koss
 
