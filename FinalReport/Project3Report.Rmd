@@ -47,7 +47,7 @@ iris %>%
 My pipeline was sailfish to edgeR.
 
 ```{r}
-knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 ```
 
 ```{r}
@@ -87,6 +87,16 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 
 # Katie Edwards
+My pipeline was Salmon --> edgeR. 
+
+```{r KE MA Plot} 
+knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
+```
+
+```{r KE Table} 
+read.csv("tables/KE_Salmon_EdgeR_final.csv", header=TRUE) 
+```
+
 
 # Emily Konishi
 
