@@ -19,6 +19,8 @@ bowtie_limma_table <- read_csv("tables/Moore_bowtie_limma.csv")
 kallisto_edgeR_table <- read_csv("tables/julie_kallisto_edgeR_final.csv")
 kallisto_limma_table <- read_csv("tables/SimpsonTable.csv")
 kallisto_deseq_table <- read_csv("tables/kallistoDESeq_Sussman.csv")
+kallisto_deseq_table <- kallisto_deseq_table[1:4]
+
 
 salmon_limma_table <- read_csv("tables/McKinleySalmonLimmaGeneInfo.csv")
 salmon_edgeR_table <- read_csv("tables/KE_Salmon_EdgeR_final.csv")
@@ -26,12 +28,12 @@ salmon_deseq_table <- read_csv("tables/salmondeseq2.csv")
 
 sailfish_limma_table <- read_csv("tables/Ritter_sailfish_limma.table.csv")
 sailfish_edgeR_table <- read_csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
-
+sailfish_deseq_table <- read_csv("tables/Vogel_Sailfish_DESeq2.csv")
 
 ```
 
 #Creating a super table
 ```{r}
-complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table)
+complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table, sailfish_deseq_table)
 ```
 
