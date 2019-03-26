@@ -26,8 +26,14 @@ knitr::opts_chunk$set(echo = TRUE)
 #Salmon
 
 ##limma
+```{r Salmon and Limma MA Plot} 
+knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
+```
 ##DESeq
 ##EdgR
+```{r Salmon EdgeR MA Plot} 
+knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
+```
 
 #SailFish
 
