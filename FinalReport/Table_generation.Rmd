@@ -1,0 +1,22 @@
+---
+title: "Group Project: Tables"
+author: "The table group"
+date: "3/26/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+---
+
+# Loading in Tables
+```{r}
+
+```
+
+#Creating a super table
+```{r}
+
+```
+
