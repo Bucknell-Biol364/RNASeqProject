@@ -44,6 +44,8 @@ iris %>%
 # Justin Koss
 
 ## My Results
+My pipeline was sailfish to edgeR.
+
 ```{r}
 knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
 ```
