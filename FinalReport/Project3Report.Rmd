@@ -44,6 +44,15 @@ iris %>%
 # Justin Koss
 
 ## My Results
+My pipeline was sailfish to edgeR.
+
+```{r}
+knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+```
+
+```{r}
+read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv", header=TRUE) 
+```
 
 =======
 
@@ -70,24 +79,21 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 # Julie
 
-Here is the MA plot for kallisto-egeR pipeline.
-
-```{r downregulated gene-picture} 
-knitr::include_graphics("figures/MA_kallisto_edgeR.png") 
-```
-
-Here is the table for up and down regulated genese using kallisto-edgeR pipeline.
-
-```{r}
-read.csv("tables/julie_kallisto_edgeR_final.csv", header=TRUE) 
-```
-
 
 # Katie Edwards
 
 # Emily Konishi
 
 # Matt McGauley
+
+```{r Matt's figure} 
+knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+```
+
+```{r Matt's data table}
+read.csv("tables/Bowtie2EdgeR_McGauley.csv", header=TRUE) 
+```
+
 
 # Cheyenne McKinley
 My pipeline was Salmon and Limma, and the MA plot is below:
@@ -114,3 +120,18 @@ read.csv("tables/Moore_bowtie_limma.csv", header=TRUE)
 # Ian Vogel
 
 # Katie Bille
+Here is my ma plot
+```{r}
+
+
+```
+
+Here is my table
+```{r}
+
+```
+
+```{r}
+
+```
+
