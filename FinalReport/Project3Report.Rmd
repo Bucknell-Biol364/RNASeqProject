@@ -44,6 +44,13 @@ iris %>%
 # Justin Koss
 
 ## My Results
+```{r}
+knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+```
+
+```{r}
+read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv", header=TRUE) 
+```
 
 =======
 
@@ -77,12 +84,25 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 # Matt McGauley
 
+```{r Matt's figure} 
+knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+```
+
+```{r Matt's data table}
+read.csv("tables/Bowtie2EdgeR_McGauley.csv", header=TRUE) 
+```
+
+
 # Cheyenne McKinley
 
 # Cheyenne Moore
 ```{r downregulated gene-picture} 
 knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
+```{r}
+read.csv("tables/Moore_bowtie_limma.csv", header=TRUE)
+```
+
 
 # Chad Sussman
 
