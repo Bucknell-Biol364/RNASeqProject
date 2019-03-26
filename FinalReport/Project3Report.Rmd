@@ -87,7 +87,7 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 
 # Katie Edwards
-My pipeline was Salmon --> edgeR
+My pipeline was Salmon --> edgeR. 
 
 ```{r KE MA Plot} 
 knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
