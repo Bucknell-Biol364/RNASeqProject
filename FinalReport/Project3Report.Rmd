@@ -80,6 +80,9 @@ read.csv("figures/SimpsonTable.csv", header=TRUE)
 # Cheyenne McKinley
 
 # Cheyenne Moore
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+```
 
 # Chad Sussman
 
