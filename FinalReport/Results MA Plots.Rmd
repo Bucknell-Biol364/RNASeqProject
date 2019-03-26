@@ -88,8 +88,10 @@ knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png")
 ```{r sailfish figures}
 sailfish_EdgeR_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 sailfish_limma_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+sailfish_DESeqw_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
 sailfish_EdgeR_MA
 sailfish_limma_MA
+sailfish_DESeq2_MA
 ```
 
 
