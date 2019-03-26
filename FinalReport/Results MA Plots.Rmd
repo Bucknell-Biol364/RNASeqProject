@@ -12,10 +12,22 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 
 #Bowtie
-
+Cheyenne
 ##limma
+```{r}
+knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+```
+
 ##DESeq
+```{r}
+knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
+```
+
+
 ##EdgR
+```{r bowtie edgr}
+knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+```
 
 #Kallisto
 
