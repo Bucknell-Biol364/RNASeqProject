@@ -40,13 +40,6 @@ iris %>%
 ```
 
 
-# Ken Field
-
-## My Results
-
-Here is where I can describe results.
-=======
-
 
 # Justin Koss
 
@@ -58,6 +51,9 @@ Here is where I can describe results.
 
 ##My results
 Here is where I can describe the results
+```{r iris-picture} 
+knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+```
 
 # Jordan Simpson
 
