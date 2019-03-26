@@ -40,13 +40,6 @@ iris %>%
 ```
 
 
-# Ken Field
-
-## My Results
-
-Here is where I can describe results.
-=======
-
 
 # Justin Koss
 
@@ -58,8 +51,21 @@ Here is where I can describe results.
 
 ##My results
 Here is where I can describe the results
+```{r iris-picture} 
+knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+```
 
 # Jordan Simpson
+
+I'm updating my own section. My pipeline was Kallisto-Limma, and as you can see, I have a single down-regulated gene.
+
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Simpson.png") 
+```
+
+```{r}
+read.csv("figures/SimpsonTable.csv", header=TRUE) 
+```
 
 
 # Julie
@@ -74,6 +80,9 @@ Here is where I can describe the results
 # Cheyenne McKinley
 
 # Cheyenne Moore
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+```
 
 # Chad Sussman
 
