@@ -83,6 +83,10 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 ```{r downregulated gene-picture} 
 knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
+```{r}
+read.csv("tables/Moore_bowtie_limma.csv", header=TRUE)
+```
+
 
 # Chad Sussman
 
