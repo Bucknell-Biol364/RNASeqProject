@@ -3,8 +3,6 @@ title: "Results MA Plots"
 author: "Bio 364 Students"
 date: "3/26/2019"
 output: html_document
-editor_options: 
-  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -13,10 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-
-#Bowtie- Cheyenne
+#Bowtie
 
 ##limma
+<<<<<<< HEAD
 ```{r}
 bowtie_limma<- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
@@ -46,17 +44,18 @@ all_bowtie
 
 
 #Kallisto - Jordan
-=======
-#Kallisto
+
 
 ##limma
 ##DESeq
 ##EdgR
 
-
-```{r downregulated gene-picture} 
+```{r Kallisto figures} 
 knitr::include_graphics("figures/Simpson.png") 
+knitr::include_graphics("figures/MA_kallisto_edgeR.png")
+
 ```
+
 
 
 
