@@ -50,9 +50,15 @@ all_bowtie
 ##EdgR
 
 ```{r Kallisto figures} 
-knitr::include_graphics("figures/Simpson.png") 
-knitr::include_graphics("figures/MA_kallisto_edgeR.png")
+kallisto_limma_MA<- knitr::include_graphics("figures/Simpson.png") 
+kallisto_edgeR_MA<- knitr::include_graphics("figures/MA_kallisto_edgeR.png")
+```
 
+```{r}
+kallisto_edgeR_MA
+kallisto_limma_MA
+
+all_kallisto_MA<- c(kallisto_edgeR_MA, kallisto_limma_MA)
 ```
 
 
