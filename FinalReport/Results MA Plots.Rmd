@@ -47,13 +47,13 @@ all_bowtie
 ##DESeq
 ##EdgR
 
-```{r Kallisto figures} 
+```{r Kallisto MA plot figures} 
 kallisto_limma_MA<- knitr::include_graphics("figures/Simpson.png") 
 kallisto_edgeR_MA<- knitr::include_graphics("figures/MA_kallisto_edgeR.png")
 kallisto_DESeq_MA<- knitr::include_graphics("figures/kallistoDESeq_Sussman.png")
 ```
 
-```{r}
+```{r Kallisto MA plot figures part 2}
 kallisto_edgeR_MA
 kallisto_limma_MA
 kallisto_DESeq_MA
@@ -61,20 +61,12 @@ kallisto_DESeq_MA
 all_kallisto_MA<- c(kallisto_edgeR_MA, kallisto_limma_MA, kallisto_DESeq_MA)
 ```
 
-
-
-
-
 #Salmon
 
 ##limma
 ##DESeq
 ##EdgR
 
-
-#SailFish
-
-=======
 ```{r Salmon Figures} 
 knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
 knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
@@ -82,7 +74,6 @@ knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png")
 ```
 
 #SailFish
-
 
 ```{r sailfish figures}
 sailfish_EdgeR_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
