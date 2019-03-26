@@ -14,13 +14,15 @@ knitr::opts_chunk$set(echo = TRUE)
 #Bowtie
 
 ##limma
-<<<<<<< HEAD
+
 ##DESeq
 ##EdgR
 
 #Kallisto
 =======
-<<<<<<< HEAD
+
+=======
+
 ```{r}
 bowtie_limma<- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
@@ -51,13 +53,13 @@ all_bowtie
 
 #Kallisto - Jordan
 
->>>>>>> 2067842a3d6048e8aca00a49aa0bb98307cf479d
+
 
 ##limma
 ##DESeq
 ##EdgR
 
-<<<<<<< HEAD
+
 =======
 ```{r Kallisto figures} 
 knitr::include_graphics("figures/Simpson.png") 
@@ -68,14 +70,14 @@ knitr::include_graphics("figures/MA_kallisto_edgeR.png")
 
 
 
->>>>>>> 2067842a3d6048e8aca00a49aa0bb98307cf479d
+
 #Salmon
 
 ##limma
 ##DESeq
 ##EdgR
 
-<<<<<<< HEAD
+
 #SailFish
 
 =======
@@ -94,7 +96,7 @@ knitr::include_graphics("figures/Ritter_DEBrowser_image.png")
 knitr::include_graphics("figures/") 
 ```
 
->>>>>>> 2067842a3d6048e8aca00a49aa0bb98307cf479d
+
 ##limma
 ##DESeq
 ##EdgR
