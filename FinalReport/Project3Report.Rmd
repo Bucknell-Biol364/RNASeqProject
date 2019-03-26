@@ -77,11 +77,11 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 # Matt McGauley
 
-```{r figure} 
+```{r Matt's figure} 
 knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
 
-```{r data table}
+```{r Matt's data table}
 read.csv("tables/Bowtie2EdgeR_McGauley.csv", header=TRUE) 
 ```
 
