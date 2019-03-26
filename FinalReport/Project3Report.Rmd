@@ -64,7 +64,7 @@ knitr::include_graphics("figures/Simpson.png")
 ```
 
 ```{r}
-read.csv("figures/SimpsonTable.csv", header=TRUE) 
+read.csv("tables/SimpsonTable.csv", header=TRUE) 
 ```
 
 
