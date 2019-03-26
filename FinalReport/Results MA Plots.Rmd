@@ -101,4 +101,7 @@ knitr::include_graphics("figures/")
 ##DESeq
 ##EdgR
 
+
+Possibly helpful links
 https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
+http://rforbiochemists.blogspot.com/2016/05/working-with-multiple-image-files.html
