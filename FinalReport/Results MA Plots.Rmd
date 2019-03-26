@@ -11,17 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-#Bowtie
-
-##limma
-
-##DESeq
-##EdgR
-
-#Kallisto
-=======
-
-=======
+#Bowtie- Cheyenne
 
 ```{r}
 bowtie_limma_MA <- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
