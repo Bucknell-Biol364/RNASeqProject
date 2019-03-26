@@ -23,6 +23,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ##DESeq
 ##EdgR
 
+
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Simpson.png") 
+```
+
+
+
 #Salmon
 
 ##limma
