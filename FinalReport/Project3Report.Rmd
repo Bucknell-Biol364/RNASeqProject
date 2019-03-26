@@ -61,6 +61,16 @@ Here is where I can describe the results
 
 # Jordan Simpson
 
+I'm updating my own section.
+
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Simpson.png") 
+```
+
+```{r}
+read.csv("figures/SimpsonTable.csv", header=TRUE) 
+```
+
 
 # Julie
 
