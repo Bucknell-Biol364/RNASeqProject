@@ -89,3 +89,18 @@ knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png")
 # Ian Vogel
 
 # Katie Bille
+Here is my ma plot
+```{r}
+
+
+```
+
+Here is my table
+```{r}
+
+```
+
+```{r}
+
+```
+
