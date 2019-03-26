@@ -70,6 +70,18 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 # Julie
 
+Here is the MA plot for kallisto-egeR pipeline.
+
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/MA_kallisto_edgeR.png") 
+```
+
+Here is the table for up and down regulated genese using kallisto-edgeR pipeline.
+
+```{r}
+read.csv("tables/julie_kallisto_edgeR_final.csv", header=TRUE) 
+```
+
 
 # Katie Edwards
 
@@ -83,6 +95,10 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 ```{r downregulated gene-picture} 
 knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
+```{r}
+read.csv("tables/Moore_bowtie_limma.csv", header=TRUE)
+```
+
 
 # Chad Sussman
 
