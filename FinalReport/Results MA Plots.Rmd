@@ -93,7 +93,6 @@ knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png")
 ```{r sailfish figures}
 knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
-knitr::include_graphics("figures/") 
 ```
 
 
