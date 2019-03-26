@@ -44,6 +44,13 @@ iris %>%
 # Justin Koss
 
 ## My Results
+```{r}
+knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+```
+
+```{r}
+read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv", header=TRUE) 
+```
 
 =======
 
