@@ -47,7 +47,7 @@ iris %>%
 My pipeline was sailfish to edgeR.
 
 ```{r}
-knitr::include_graphics("figures/JustinKoss.UpandDownRegGraph.png") 
+knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 ```
 
 ```{r}
@@ -60,8 +60,14 @@ read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv", header=TRUE)
 
 ##My results
 Here is where I can describe the results
-```{r iris-picture} 
+
+
+```{r Ritter Adding gene-picture} 
 knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+```
+
+```{r Ritter Uploading gene table}
+sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv", header=TRUE) 
 ```
 
 # Jordan Simpson
@@ -81,9 +87,30 @@ read.csv("tables/SimpsonTable.csv", header=TRUE)
 
 
 # Katie Edwards
+My pipeline was Salmon --> edgeR. 
+
+```{r Salmon EdgeR MA Plot} 
+knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
+```
+
+```{r Salmon EdgeR Table} 
+read.csv("tables/KE_Salmon_EdgeR_final.csv", header=TRUE) 
+```
+
 
 # Emily Konishi
 
+Here is my MA plot.
+
+```{r salmon-deseq2 MA Plot} 
+knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
+```
+
+Here is my table.
+
+```{r salmon-deseq2 data table}
+read.csv("tables/salmondeseq2.csv", header=TRUE) 
+```
 # Matt McGauley
 
 ```{r Matt's figure} 
@@ -96,6 +123,15 @@ read.csv("tables/Bowtie2EdgeR_McGauley.csv", header=TRUE)
 
 
 # Cheyenne McKinley
+My pipeline was Salmon and Limma, and the MA plot is below:
+```{r MA Plot Salmon and Limma} 
+knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
+```
+
+The table for the up and down regulated genes is below:
+```{r Up and Down regulated Salmon and Limma}
+read.csv("tables/McKinleySalmonLimmaGeneInfo.csv", header=TRUE) 
+```
 
 # Cheyenne Moore
 ```{r downregulated gene-picture} 
