@@ -1,0 +1,14 @@
+---
+title: "Results MA Plots"
+author: "Bio 364 Students"
+date: "3/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
