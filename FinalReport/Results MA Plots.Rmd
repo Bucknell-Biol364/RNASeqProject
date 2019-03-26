@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r sailfish figures}
 knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
-knitr::include_graphics("figures/") 
+knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
 knitr::include_graphics("figures/") 
 ```
 
