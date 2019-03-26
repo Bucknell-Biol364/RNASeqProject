@@ -14,10 +14,37 @@ knitr::opts_chunk$set(echo = TRUE)
 #Bowtie
 
 ##limma
-##DESeq
-##EdgR
+<<<<<<< HEAD
+```{r}
+bowtie_limma<- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+```
 
-#Kallisto
+##DESeq
+```{r}
+bowtie_deseq<- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
+```
+
+##EdgR
+```{r}
+bowtie_edgr<- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+```
+
+
+##All Bowtie
+```{r}
+bowtie_limma
+bowtie_deseq
+bowtie_edgr
+
+all_bowtie<- c(bowtie_limma, bowtie_deseq, bowtie_edgr)
+
+all_bowtie
+```
+
+
+
+#Kallisto - Jordan
+
 
 ##limma
 ##DESeq
