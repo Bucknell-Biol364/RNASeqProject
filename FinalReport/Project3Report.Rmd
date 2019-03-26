@@ -1,0 +1,40 @@
+---
+title: "Group Project 3"
+author: "Biology 364/664 Students"
+date: "3/26/2019"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.path="figures/", fig.width=6.5, fig.height=4, fig.align="center")
+if (!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
+```
+
+## Example Figure
+
+```{r sepal-width-length, fig.cap='Relation between sepal width and length in three species of _Iris_.'}
+library(tidyverse)
+iris %>%
+ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+geom_point() 
+```
+
+## Including Graphics
+
+```{r iris-picture} 
+knitr::include_graphics("figures/IMG_1827.jpg") 
+```
+
+## Tables
+
+```{r iris-table} 
+iris %>%
+  group_by(Species) %>% summarize(sepal_length = mean(Sepal.Length), sepal_width = mean(Sepal.Width)) %>% 
+  knitr::kable(caption = "Mean sepal width and length for three species of _Iris_.") 
+```
