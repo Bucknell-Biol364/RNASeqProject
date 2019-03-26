@@ -12,53 +12,30 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 
 #Bowtie
-Cheyenne
+
 ##limma
-```{r}
-knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
-```
-
 ##DESeq
-```{r}
-knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
-```
-
-
 ##EdgR
-```{r bowtie edgr}
-knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
-```
 
 #Kallisto
 
-##limma 
+##limma
 ##DESeq
 ##EdgR
-
-```{r kallisto limma-ma plot} 
-knitr::include_graphics("figures/Simpson.png") 
-```
-
 
 #Salmon
 
 ##limma
-```{r Salmon and Limma MA Plot} 
-knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
-```
 ##DESeq
 ##EdgR
-```{r Salmon EdgeR MA Plot} 
-knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
-```
 
 #SailFish
 
 
 ```{r sailfish figures}
-knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png") 
+knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 knitr::include_graphics("figures/") 
-
+knitr::include_graphics("figures/") 
 ```
 
 ##limma
