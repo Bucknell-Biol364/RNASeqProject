@@ -143,22 +143,26 @@ read.csv("tables/Moore_bowtie_limma.csv", header=TRUE)
 
 
 # Chad Sussman
+Here is my MA plot.
 
+```{r kallisto-deseq2 MA Plot} 
+knitr::include_graphics("figures/kallistoDESeq_Sussman.png") 
+```
+
+Here is my table.
+
+```{r kallisto-deseq2 data table}
+read.csv("tables/kallistoDESeq_Sussman.csv", header=TRUE) 
+```
 # Ian Vogel
 
 # Katie Bille
 Here is my ma plot
-```{r}
-
-
+```{r bowtie2_deseq2 gene regulation}
+knitr::include_graphics("figures/bowtie2_deseq2_maplot2.png") 
 ```
 
 Here is my table
-```{r}
-
+```{r bowtie2_deseq2 ma plot}
+bowtie2_deseq2 <- read.csv("tables/bowtie2_deseq2_transcript.csv", header=TRUE)
 ```
-
-```{r}
-
-```
-
