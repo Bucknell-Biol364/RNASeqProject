@@ -14,26 +14,35 @@ knitr::opts_chunk$set(echo = TRUE)
 #Bowtie
 
 ##limma
+
+##DESeq
+##EdgR
+
+#Kallisto
+=======
+
+=======
+
 ```{r}
-bowtie_limma<- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+bowtie_limma_MA <- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
 
 ##DESeq
 ```{r}
-bowtie_deseq<- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
+bowtie_deseq_MA <- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
 ```
 
 ##EdgR
 ```{r}
-bowtie_edgr<- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+bowtie_edgr_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
 
 
 ##All Bowtie
 ```{r}
-bowtie_limma
-bowtie_deseq
-bowtie_edgr
+bowtie_limma_MA
+bowtie_deseq_MA
+bowtie_edgr_MA
 
 all_bowtie<- c(bowtie_limma, bowtie_deseq, bowtie_edgr)
 
@@ -45,10 +54,13 @@ all_bowtie
 #Kallisto - Jordan
 
 
+
 ##limma
 ##DESeq
 ##EdgR
 
+
+=======
 ```{r Kallisto figures} 
 kallisto_limma_MA<- knitr::include_graphics("figures/Simpson.png") 
 kallisto_edgeR_MA<- knitr::include_graphics("figures/MA_kallisto_edgeR.png")
@@ -64,12 +76,17 @@ all_kallisto_MA<- c(kallisto_edgeR_MA, kallisto_limma_MA)
 
 
 
+
 #Salmon
 
 ##limma
 ##DESeq
 ##EdgR
 
+
+#SailFish
+
+=======
 ```{r Salmon Figures} 
 knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
 knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
@@ -84,6 +101,7 @@ knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png")
 knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
 knitr::include_graphics("figures/") 
 ```
+
 
 ##limma
 ##DESeq
