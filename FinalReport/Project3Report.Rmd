@@ -90,6 +90,15 @@ read.csv("tables/julie_kallisto_edgeR_final.csv", header=TRUE)
 # Matt McGauley
 
 # Cheyenne McKinley
+My pipeline was Salmon and Limma, and the MA plot is below:
+```{r MA Plot Salmon and Limma} 
+knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
+```
+
+The table for the up and down regulated genes is below:
+```{r Up and Down regulated Salmon and Limma}
+read.csv("tables/McKinleySalmonLimmaGeneInfo.csv", header=TRUE) 
+```
 
 # Cheyenne Moore
 ```{r downregulated gene-picture} 
