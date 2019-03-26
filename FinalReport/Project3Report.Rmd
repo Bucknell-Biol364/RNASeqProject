@@ -100,6 +100,17 @@ read.csv("tables/KE_Salmon_EdgeR_final.csv", header=TRUE)
 
 # Emily Konishi
 
+Here is my MA plot.
+
+```{r salmon-deseq2 MA Plot} 
+knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
+```
+
+Here is my table.
+
+```{r salmon-deseq2 data table}
+read.csv("tables/salmondeseq2.csv", header=TRUE) 
+```
 # Matt McGauley
 
 ```{r Matt's figure} 
