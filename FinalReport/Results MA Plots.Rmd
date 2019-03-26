@@ -15,25 +15,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##limma
 ```{r}
-bowtie_limma<- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
+bowtie_limma_MA <- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
 
 ##DESeq
 ```{r}
-bowtie_deseq<- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
+bowtie_deseq_MA <- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
 ```
 
 ##EdgR
 ```{r}
-bowtie_edgr<- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+bowtie_edgr_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
 
 
 ##All Bowtie
 ```{r}
-bowtie_limma
-bowtie_deseq
-bowtie_edgr
+bowtie_limma_MA
+bowtie_deseq_MA
+bowtie_edgr_MA
 
 all_bowtie<- c(bowtie_limma, bowtie_deseq, bowtie_edgr)
 
