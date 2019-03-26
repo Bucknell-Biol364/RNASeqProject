@@ -33,6 +33,6 @@ sailfish_edgeR <- read_csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
 
 #Creating a super table
 ```{r}
-bowtie_combined <- rbind(bowtie_deseq, bowtie_edgeR)
+
 ```
 
