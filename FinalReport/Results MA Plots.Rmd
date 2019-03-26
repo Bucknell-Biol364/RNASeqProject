@@ -65,7 +65,7 @@ all_kallisto_MA<- c(kallisto_edgeR_MA, kallisto_limma_MA, kallisto_DESeq_MA)
 
 ##limma
 ##DESeq
-##EdgR
+##EdgeR
 
 ```{r Salmon Figures} 
 salmon_limma_MA <- knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
