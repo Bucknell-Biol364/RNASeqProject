@@ -49,6 +49,13 @@ knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png")
 ##DESeq
 ##EdgR
 
+
+```{r downregulated gene-picture} 
+knitr::include_graphics("figures/Simpson.png") 
+```
+
+
+
 #Salmon
 
 ##limma
