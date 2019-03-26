@@ -11,3 +11,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
