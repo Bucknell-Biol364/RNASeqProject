@@ -39,8 +39,24 @@ iris %>%
   knitr::kable(caption = "Mean sepal width and length for three species of _Iris_.") 
 ```
 
+
 # Ken Field
 
 ## My Results
 
 Here is where I can describe results.
+=======
+
+
+# Justin Koss
+
+## My Results
+
+=======
+
+#Megan Ritter
+
+##My results
+Here is where I can describe the results
+
+
