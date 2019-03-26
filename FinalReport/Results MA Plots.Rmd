@@ -64,6 +64,12 @@ knitr::include_graphics("figures/MA_kallisto_edgeR.png")
 ##DESeq
 ##EdgR
 
+```{r Salmon Figures} 
+knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
+knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
+knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
+```
+
 #SailFish
 
 
