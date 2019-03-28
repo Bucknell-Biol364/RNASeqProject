@@ -39,3 +39,13 @@ write.csv(complete_table, file ="tables/All_pipelines_complete_table.csv", quote
 
 ```
 
+```{r}
+if (!require("VennDiagram")) install.packages("Venndiagram"); library(VennDiagram)
+
+#url to package info: https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf
+
+#url to tutorial: https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html
+
+#looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups
+```
+
