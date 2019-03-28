@@ -12,47 +12,30 @@ output:
 
 # Loading in Tables
 ```{r}
+bowtie_deseq_table <- read.csv("tables/bowtie2_deseq2_transcript.csv") 
+bowtie_edgeR_table <- read.csv("tables/Bowtie2EdgeR_McGauley.csv")
+bowtie_limma_table <- read.csv("tables/Moore_bowtie_limma.csv")
 
-#bowtie
-bowtie_deseq <- read_csv("tables/bowtie2_deseq2_transcript.csv") 
-bowtie_edgeR <- read_csv("tables/Bowtie2EdgeR_McGauley.csv")
-
-#kallisto
-kallisto_edgeR <- read_csv("tables/julie_kallisto_edgeR_final.csv")
-kallisto_limma <- read_csv("tables/SimpsonTable.csv")
-
-#salmon
-salmon_limma <- read_csv("tables/McKinleySalmonLimmaGeneInfo.csv")
-salmon_edgeR <- read_csv("tables/KE_Salmon_EdgeR_final.csv")
-salmon_deseq <- read_csv("tables/salmondeseq2.csv")
-
-#sailfish
-sailfish_limma <- read_csv("tables/Ritter_sailfish_limma.table.csv")
-sailfish_edgeR <- read_csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
-
-bowtie_deseq_table <- read_csv("tables/bowtie2_deseq2_transcript.csv") 
-bowtie_edgeR_table <- read_csv("tables/Bowtie2EdgeR_McGauley.csv")
-bowtie_limma_table <- read_csv("tables/Moore_bowtie_limma.csv")
-
-kallisto_edgeR_table <- read_csv("tables/julie_kallisto_edgeR_final.csv")
-kallisto_limma_table <- read_csv("tables/SimpsonTable.csv")
-kallisto_deseq_table <- read_csv("tables/kallistoDESeq_Sussman.csv")
+kallisto_edgeR_table <- read.csv("tables/julie_kallisto_edgeR_final.csv")
+kallisto_limma_table <- read.csv("tables/SimpsonTable.csv")
+kallisto_deseq_table <- read.csv("tables/kallistoDESeq_Sussman.csv")
 kallisto_deseq_table <- kallisto_deseq_table[1:4]
 
 
-salmon_limma_table <- read_csv("tables/McKinleySalmonLimmaGeneInfo.csv")
-salmon_edgeR_table <- read_csv("tables/KE_Salmon_EdgeR_final.csv")
-salmon_deseq_table <- read_csv("tables/salmondeseq2.csv")
+salmon_limma_table <- read.csv("tables/McKinleySalmonLimmaGeneInfo.csv")
+salmon_edgeR_table <- read.csv("tables/KE_Salmon_EdgeR_final.csv")
+salmon_deseq_table <- read.csv("tables/salmondeseq2.csv")
 
-sailfish_limma_table <- read_csv("tables/Ritter_sailfish_limma.table.csv")
-sailfish_edgeR_table <- read_csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
-sailfish_deseq_table <- read_csv("tables/Vogel_Sailfish_DESeq2.csv")
-
+sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv")
+sailfish_edgeR_table <- read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
+sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
 
 ```
 
 #Creating a super table
 ```{r}
 complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table, sailfish_deseq_table)
+write.csv(complete_table, file ="tables/All_pipelines_complete_table.csv", quote = FALSE)
+
 ```
 
