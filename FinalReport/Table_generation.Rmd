@@ -29,7 +29,6 @@ salmon_deseq_table <- read.csv("tables/salmondeseq2.csv")
 sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv")
 sailfish_edgeR_table <- read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
 sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
-
 ```
 
 #Creating a super table
@@ -46,6 +45,9 @@ if (!require("VennDiagram")) install.packages("Venndiagram"); library(VennDiagra
 
 #url to tutorial: https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html
 
-#looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups
+#looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups..I think the calculate.overlap() will do this and we just have to specify which groups you want to compare
+
+#overlap <- calculate.overlap(x = list("Frag1" = frag1,"Frag2" = frag2));
+#overlap
 ```
 
