@@ -9,9 +9,14 @@ output:
     toc_float: true
     number_sections: true
 ---
+```{r Tables Packages}
+if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
+if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
+```
+
 
 # Loading in Tables
-```{r}
+```{r Uploading data}
 bowtie_deseq_table <- read.csv("tables/bowtie2_deseq2_transcript.csv") 
 bowtie_edgeR_table <- read.csv("tables/Bowtie2EdgeR_McGauley.csv")
 bowtie_limma_table <- read.csv("tables/Moore_bowtie_limma.csv")
@@ -32,22 +37,94 @@ sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
 ```
 
 #Creating a super table
-```{r}
+```{r Table Generation}
 complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table, sailfish_deseq_table)
 write.csv(complete_table, file ="tables/All_pipelines_complete_table.csv", quote = FALSE)
 
+#confirming number of rows is correct in new table
+nrow(bowtie_deseq_table) +nrow(bowtie_edgeR_table) +nrow(bowtie_limma_table) +nrow(kallisto_deseq_table) +nrow(kallisto_edgeR_table) +nrow(kallisto_limma_table) +nrow(salmon_deseq_table) +nrow(salmon_edgeR_table) +nrow(salmon_limma_table) +nrow(sailfish_limma_table) +nrow(sailfish_edgeR_table)+nrow(sailfish_deseq_table) == nrow(complete_table)
+
+#not getting the right number of responses here, perhaps a capitalization issue
+n_distinct(complete_table$Align)
+unique(complete_table$Align)
+n_distinct(complete_table$DE)
+unique(complete_table$DE)
 ```
+
+#Venn Diagram Work
+
+url to package info: https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf
+
+url to tutorial: https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html
+
+Looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups..I think the calculate.overlap() will do this and we just have to specify which groups you want to compare
+
 
 ```{r}
-if (!require("VennDiagram")) install.packages("Venndiagram"); library(VennDiagram)
-
-#url to package info: https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf
-
-#url to tutorial: https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html
-
-#looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups..I think the calculate.overlap() will do this and we just have to specify which groups you want to compare
-
-#overlap <- calculate.overlap(x = list("Frag1" = frag1,"Frag2" = frag2));
-#overlap
+overlap <- calculate.overlap(x = list("Frag1" = filter(complete_table, Align == "bowtie2")$GeneName,"Frag2" = filter(complete_table, Align == "kallisto")$GeneName));
+overlap
 ```
 
+
+```{r Venn Diagram prep: DESeq2}
+DESeq_venn <- filter(complete_table, DE == "DESeq2")
+
+nrow(subset(DESeq_venn, Align == "bowtie2")) #478
+nrow(subset(DESeq_venn, Align == "kallisto")) #431
+nrow(subset(DESeq_venn, Align == "salmon")) #2
+nrow(subset(DESeq_venn, Align == "sailfish")) #645
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(DESeq_venn, Align == "bowtie2")) +
+nrow(subset(DESeq_venn, Align == "kallisto")) +
+nrow(subset(DESeq_venn, Align == "salmon")) +
+nrow(subset(DESeq_venn, Align == "sailfish")) == nrow(DESeq_venn)
+
+#looking for overlap
+
+#number of genes that Bowtie and kallisto share
+combo_bowtie2_kallisto <- filter(DESeq_venn, Align == "bowtie2" | Align == "kallisto")
+nrow(combo_bowtie2_kallisto) - n_distinct(combo_bowtie2_kallisto$GeneName) #294
+
+#bowtie2 and salmon
+combo_bowtie2_salmon <- filter(DESeq_venn, Align == "bowtie2" | Align == "salmon")
+nrow(combo_bowtie2_salmon) - n_distinct(combo_bowtie2_salmon$GeneName) #0
+
+#bowtie2 and sailfish
+combo_bowtie2_sailfish <- filter(DESeq_venn, Align == "bowtie2" | Align == "sailfish")
+nrow(combo_bowtie2_sailfish) - n_distinct(combo_bowtie2_sailfish$GeneName) #365
+
+#kallisto and salmon
+combo_kallisto_salmon <- filter(DESeq_venn, Align == "kallisto" | Align == "salmon")
+nrow(combo_kallisto_salmon) - n_distinct(combo_kallisto_salmon$GeneName) #0
+
+#kallisto and sailfish
+combo_kallisto_sailfish <- filter(DESeq_venn, Align == "kallisto" | Align == "sailfish")
+nrow(combo_kallisto_sailfish) - n_distinct(combo_kallisto_sailfish$GeneName) #354
+
+#salmon and sailfish
+combo_salmon_sailfish <- filter(DESeq_venn, Align == "salmon" | Align == "sailfish")
+nrow(combo_salmon_sailfish) - n_distinct(combo_salmon_sailfish$GeneName) #0
+
+#bowtie2, kallisto, salmon (123) =0
+
+
+#bowtie2, kallisto, sailfish (124)
+
+
+#bowtie2, salmon, sailfish (134) =0 
+#kallisto, salmon, sailfish (234) =0
+#bowtie2 kallisto, salmon, sailfish 1234 =0
+
+
+```
+bowtie2= area1
+kallisto= area2
+salmon = area3
+sailfish = area4
+
+```{r DESeq2 Venn Diagram}
+
+grid.newpage()
+draw.quad.venn(area1 = 478, area2 = 431, area3 = 2, area4 = 645, n12=294, n13=0, n14=365, n23=0, n24=354, n34=0, n123 =0, n124=365, n134=0, n234=0, n1234=0, scaled = FALSE)
+```
