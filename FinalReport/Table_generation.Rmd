@@ -36,6 +36,27 @@ sailfish_edgeR_table <- read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
 sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
 ```
 
+```{r}
+colnames(bowtie_deseq_table)
+colnames(bowtie_edgeR_table)
+colnames(bowtie_limma_table)
+
+colnames(kallisto_deseq_table)
+colnames(kallisto_edgeR_table)
+colnames(kallisto_limma_table)
+
+colnames(salmon_deseq_table)
+colnames(salmon_edgeR_table)
+colnames(salmon_limma_table)
+
+colnames(sailfish_deseq_table)
+colnames(sailfish_edgeR_table)
+colnames(sailfish_limma_table)
+
+
+```
+
+
 #Creating a super table
 ```{r Table Generation}
 complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table, sailfish_deseq_table)
