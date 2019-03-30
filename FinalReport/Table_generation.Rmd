@@ -14,7 +14,7 @@ output:
 ---
 ```{r Tables Packages}
 
-if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
+if (!require("venn")) install.packages("venn"); library(venn)
 if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
 ```
 
@@ -179,24 +179,195 @@ Trying the package venn: success!
 ```{r venn Diagram for Aligners}
 library(venn)
 #bowtie2
-venn_bowtie2_list <- list(bowtie = subset(bowtie2_venn, DE == "DESeq2")$GeneName, edgeR = subset(bowtie2_venn, DE == "edgeR")$GeneName, limma = subset(bowtie2_venn, DE == "limma")$GeneName)
+venn_bowtie2_list <- list(DESeq2 = subset(bowtie2_venn, DE == "DESeq2")$GeneName, edgeR = subset(bowtie2_venn, DE == "edgeR")$GeneName, limma = subset(bowtie2_venn, DE == "limma")$GeneName)
 venn_bowtie2_plot <- venn(venn_bowtie2_list, show.plot=TRUE)
 
 #kallisto
-venn_kallisto_list <- list(bowtie = subset(kallisto_venn, DE == "DESeq2")$GeneName, edgeR = subset(kallisto_venn, DE == "edgeR")$GeneName, limma = subset(kallisto_venn, DE == "limma")$GeneName)
+venn_kallisto_list <- list(DESeq2 = subset(kallisto_venn, DE == "DESeq2")$GeneName, edgeR = subset(kallisto_venn, DE == "edgeR")$GeneName, limma = subset(kallisto_venn, DE == "limma")$GeneName)
 venn_kallisto_plot <- venn(venn_kallisto_list, show.plot=TRUE)
 
 #salmon
-venn_salmon_list <- list(bowtie = subset(salmon_venn, DE == "DESeq2")$GeneName, edgeR = subset(salmon_venn, DE == "edgeR")$GeneName, limma = subset(salmon_venn, DE == "limma")$GeneName)
+venn_salmon_list <- list(DESeq2 = subset(salmon_venn, DE == "DESeq2")$GeneName, edgeR = subset(salmon_venn, DE == "edgeR")$GeneName, limma = subset(salmon_venn, DE == "limma")$GeneName)
 venn_bowtie2_plot <- venn(venn_bowtie2_list, show.plot=TRUE)
 
 #sailfish
-venn_sailfish_list <- list(bowtie = subset(sailfish_venn, DE == "DESeq2")$GeneName, edgeR = subset(sailfish_venn, DE == "edgeR")$GeneName, limma = subset(sailfish_venn, DE == "limma")$GeneName)
+venn_sailfish_list <- list(DESeq2 = subset(sailfish_venn, DE == "DESeq2")$GeneName, edgeR = subset(sailfish_venn, DE == "edgeR")$GeneName, limma = subset(sailfish_venn, DE == "limma")$GeneName)
 venn_sailfish_plot <- venn(venn_sailfish_list, show.plot=TRUE)
 
 ```
 
 
+# Julie's attempt at venn diagrams
+I had to run the code above to get the correct numbers for each overlap. So that's still necessary. But this is another way to display the info but with color :) !!!
+
+Venn diagrams for DE
+
+```{r DESeq2 venn with color}
+DESeq2.venn.plot <- draw.quad.venn(
+  area1 = 431,
+  area2 = 478,
+  area3 = 2,
+  area4 = 645,
+  n12 = 294,
+  n13 = 0,
+  n14 = 354,
+  n23 = 0,
+  n24 = 365,
+  n34 = 0,
+  n123 = 0,
+  n124 = 273,
+  n134 = 0,
+  n234 = 0,
+  n1234 = 0,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+require(gridExtra)
+grid.arrange(gTree(children=DESeq2.venn.plot), top="Differential Expression using DESeq2")
+```
+
+```{r edgeR venn with color}
+edgeR.venn.plot <- draw.quad.venn(
+  area1 = 319,
+  area2 = 537,
+  area3 = 541,
+  area4 = 395,
+  n12 = 260,
+  n13 = 260,
+  n14 = 264,
+  n23 = 536,
+  n24 = 332,
+  n34 = 332,
+  n123 = 260,
+  n124 = 243,
+  n134 = 243,
+  n234 = 332,
+  n1234 = 243,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=edgeR.venn.plot), top="Differential Expression using edgeR")
+```
+
+```{r limma venn with color}
+limma.venn.plot <- draw.quad.venn(
+  area1 = 1,
+  area2 = 182,
+  area3 = 338,
+  area4 = 213,
+  n12 = 1,
+  n13 = 1,
+  n14 = 1,
+  n23 = 156,
+  n24 = 143,
+  n34 = 183,
+  n123 = 1,
+  n124 = 1,
+  n134 = 1,
+  n234 = 136,
+  n1234 = 1,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=limma.venn.plot), top="Differential Expression using limma")
+```
+
+Venn diagrams for aligners
+
+```{r bowtie2 venn with color}
+bowtie2.venn.plot = draw.triple.venn(
+  area1 = 478,
+  area2 = 537,
+  area3 = 182,
+  n12 = 298,
+  n23 = 163,
+  n13 = 181,
+  n123 = 162,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=bowtie2.venn.plot), top="Differential Expression using bowtie2")
+```
+
+```{r kallisto venn with color}
+kallisto.venn.plot = draw.triple.venn(
+  area1 = 431,
+  area2 = 319,
+  area3 = 1,
+  n12 = 242,
+  n23 = 1,
+  n13 = 1,
+  n123 = 1,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=kallisto.venn.plot), top="Differential Expression using kallisto")
+```
+
+```{r salmon venn with color}
+salmon.venn.plot = draw.triple.venn(
+  area1 = 478,
+  area2 = 537,
+  area3 = 182,
+  n12 = 298,
+  n23 = 163,
+  n13 = 181,
+  n123 = 162,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=salmon.venn.plot), top="Differential Expression using salmon")
+```
+
+```{r sailfish venn with color}
+sailfish.venn.plot = draw.triple.venn(
+  area1 = 645,
+  area2 = 395,
+  area3 = 213,
+  n12 = 289,
+  n23 = 201,
+  n13 = 213,
+  n123 = 201,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=sailfish.venn.plot), top="Differential Expression using sailfish")
+```
+
+
+
+
+
+
+
+
+---------------------------------------------------------------
 
 #Everything below here is a failure
 ```{r Venn Diagram attemp prepping for DESeq2}
