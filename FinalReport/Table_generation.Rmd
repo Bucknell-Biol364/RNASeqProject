@@ -41,7 +41,7 @@ sailfish_edgeR_table <- read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
 sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
 ```
 
-```{r}
+```{r Checking column names}
 colnames(bowtie_deseq_table)
 colnames(bowtie_edgeR_table)
 colnames(bowtie_limma_table)
@@ -57,7 +57,7 @@ colnames(salmon_limma_table)
 colnames(sailfish_deseq_table)
 colnames(sailfish_edgeR_table)
 colnames(sailfish_limma_table)
-
+colnames(sailfish_limma_table)[1] <- "Align"
 
 ```
 
@@ -322,6 +322,10 @@ bowtie2.venn.plot = draw.triple.venn(
 
 require(gridExtra)
 grid.arrange(gTree(children=bowtie2.venn.plot), top="Differential Expression using bowtie2")
+
+#saves plot as png
+dev.copy(png,'bowtievenn.png')
+dev.off()
 ```
 
 ```{r kallisto venn with color}
@@ -339,8 +343,14 @@ kallisto.venn.plot = draw.triple.venn(
   cat.cex = 1
 )
 
+
 require(gridExtra)
 grid.arrange(gTree(children=kallisto.venn.plot), top="Differential Expression using kallisto")
+
+#saves plot as png
+dev.copy(png,'kallistovenn.png')
+dev.off()
+
 ```
 
 ```{r salmon venn with color}
@@ -360,6 +370,10 @@ salmon.venn.plot = draw.triple.venn(
 
 require(gridExtra)
 grid.arrange(gTree(children=salmon.venn.plot), top="Differential Expression using salmon")
+
+#saves plot as png
+dev.copy(png,'salmonvenn.png')
+dev.off()
 ```
 
 ```{r sailfish venn with color}
@@ -375,17 +389,27 @@ sailfish.venn.plot = draw.triple.venn(
   fill = c("red", "green", "blue"),
   cex = 1,
   cat.cex = 1
-)
+) -> sailfishvenn
 
 require(gridExtra)
 grid.arrange(gTree(children=sailfish.venn.plot), top="Differential Expression using sailfish")
+
+#saves plot as png
+dev.copy(png,'sailfishvenn.png')
+dev.off()
+
 ```
 
 
 
 
 
+```{r Combing aligners venn diagrams}
 
+aligners_venn_read <- lapply(list("venn_figs/sailfishvenn.png", "venn_figs/bowtievenn.png", "venn_figs/kallistovenn.png", "venn_figs/salmonvenn.png"), png::readPNG)
+combo_alignersvenn <- lapply(aligners_venn_read, grid::rasterGrob)
+do.call(gridExtra::grid.arrange, combo_alignersvenn)
+```
 
 
 ---------------------------------------------------------------
@@ -482,3 +506,35 @@ overlap3
 #a3=199
 
 ```
+
+
+```{r Combinig aligner venns}
+library("png") # for reading in PNGs
+
+# Reading png's
+sfv <- readPNG("venn_figs/sailfishvenn.png")
+btv <- readPNG("venn_figs/bowtievenn.png") 
+kv <- readPNG("venn_figs/kallistovenn.png")
+sv <- readPNG("venn_figs/salmonvenn.png")
+
+# setup plot
+#dev.off()
+par(mai=rep(0,4)) # no margins
+
+# layout the plots into a matrix w/ 2 columns, by row
+layout(matrix(1:4, ncol=2, byrow=TRUE))
+
+# do the plotting
+for(i in 1:4) {
+  plot(NA,xlim=0:1,ylim=0:1,bty="n",axes=0,xaxs = 'i',yaxs='i')
+  rasterImage(sfv,0,0,1,1) 
+  rasterImage(btv,0,0,1,1) 
+  rasterImage(kv,0,0,1,1) 
+  rasterImage(sv,0,0,1,1)
+}
+
+# write to PDF
+#dev.print(pdf, "output.pdf")
+```
+```
+
