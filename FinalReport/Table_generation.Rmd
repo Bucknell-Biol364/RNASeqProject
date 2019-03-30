@@ -15,6 +15,7 @@ output:
 ```{r Tables Packages}
 
 if (!require("venn")) install.packages("venn"); library(venn)
+if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
 if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
 ```
 
@@ -177,7 +178,6 @@ nrow(subset(sailfish_venn, DE == "limma")) == nrow(sailfish_venn)
 
 Trying the package venn: success!
 ```{r venn Diagram for Aligners}
-library(venn)
 #bowtie2
 venn_bowtie2_list <- list(DESeq2 = subset(bowtie2_venn, DE == "DESeq2")$GeneName, edgeR = subset(bowtie2_venn, DE == "edgeR")$GeneName, limma = subset(bowtie2_venn, DE == "limma")$GeneName)
 venn_bowtie2_plot <- venn(venn_bowtie2_list, show.plot=TRUE)
