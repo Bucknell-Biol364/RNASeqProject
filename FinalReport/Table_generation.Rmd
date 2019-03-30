@@ -250,7 +250,7 @@ require(gridExtra)
 grid.arrange(gTree(children=DESeq2.venn.plot), top="Differential Expression using DESeq2")
 
 #saves plot as png
-dev.copy(png,'deseq2venn.png')
+dev.copy(png,'venn_figs/deseq2venn.png')
 dev.off()
 ```
 
@@ -281,7 +281,7 @@ require(gridExtra)
 grid.arrange(gTree(children=edgeR.venn.plot), top="Differential Expression using edgeR")
 
 #saves plot as png
-dev.copy(png,'edgrvenn.png')
+dev.copy(png,'venn_figs/edgrvenn.png')
 dev.off()
 ```
 
@@ -312,7 +312,7 @@ require(gridExtra)
 grid.arrange(gTree(children=limma.venn.plot), top="Differential Expression using limma")
 
 #saves plot as png
-dev.copy(png,'limmavenn.png')
+dev.copy(png,'venn_figs/limmavenn.png')
 dev.off()
 ```
 
@@ -337,7 +337,7 @@ require(gridExtra)
 grid.arrange(gTree(children=bowtie2.venn.plot), top="Differential Expression using bowtie2")
 
 #saves plot as png
-dev.copy(png,'bowtievenn.png')
+dev.copy(png,'venn_figs/bowtievenn.png')
 dev.off()
 ```
 
@@ -361,7 +361,7 @@ require(gridExtra)
 grid.arrange(gTree(children=kallisto.venn.plot), top="Differential Expression using kallisto")
 
 #saves plot as png
-dev.copy(png,'kallistovenn.png')
+dev.copy(png,'venn_figs/kallistovenn.png')
 dev.off()
 
 ```
@@ -385,7 +385,7 @@ require(gridExtra)
 grid.arrange(gTree(children=salmon.venn.plot), top="Differential Expression using salmon")
 
 #saves plot as png
-dev.copy(png,'salmonvenn.png')
+dev.copy(png,'venn_figs/salmonvenn.png')
 dev.off()
 ```
 
@@ -408,7 +408,7 @@ require(gridExtra)
 grid.arrange(gTree(children=sailfish.venn.plot), top="Differential Expression using sailfish")
 
 #saves plot as png
-dev.copy(png,'sailfishvenn.png')
+dev.copy(png,'venn_figs/sailfishvenn.png')
 dev.off()
 
 ```
@@ -425,7 +425,7 @@ combo_alignersvenn <- lapply(aligners_venn_read, grid::rasterGrob) #creates a li
 grid.arrange(grobs=combo_alignersvenn, ncol=2, 
                top="Comparing Methods of RNAseq Alignment")
 #saves plot as png
-dev.copy(png,'combo_aligner_venn.png')
+dev.copy(png,'venn_figs/combo_aligner_venn.png')
 dev.off()
 ```
 
@@ -437,9 +437,8 @@ de_venn_read <- lapply(list("venn_figs/deseq2venn.png", "venn_figs/edgrvenn.png"
 combo_devenn <- lapply(de_venn_read, grid::rasterGrob) #creates a list of the read png's and creates grobs (graphical raster objects..which is a rastered image of the png's)
 grid.arrange(grobs=combo_devenn, ncol=3, 
                top="Comparison of Differential Expression Analysis Packages")
-
 #saves plot as png
-dev.copy(png,'combo_de_venn.png')
+dev.copy(png,'venn_figs/combo_de_venn.png')
 dev.off()
 ```
 
