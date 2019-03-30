@@ -570,4 +570,9 @@ for(i in 1:4) {
 #dev.print(pdf, "output.pdf")
 ```
 ```
+Sources:
 
+combo images
+https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html
+https://www.rdocumentation.org/packages/grid/versions/3.5.3
+https://stackoverflow.com/questions/23750305/how-can-i-make-multipanel-plots-of-several-png-files-in-r?lq=1
