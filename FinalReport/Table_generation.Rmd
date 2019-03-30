@@ -13,9 +13,10 @@ output:
     toc_float: yes
 ---
 ```{r Tables Packages}
-
 if (!require("venn")) install.packages("venn"); library(venn)
 if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
+if (!require("grid")) install.packages("grid"); library(grid)
+if (!require("gridExtra")) install.packages("gridExtra"); library(gridExtra)
 if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
 ```
 
@@ -247,6 +248,10 @@ DESeq2.venn.plot <- draw.quad.venn(
 )
 require(gridExtra)
 grid.arrange(gTree(children=DESeq2.venn.plot), top="Differential Expression using DESeq2")
+
+#saves plot as png
+dev.copy(png,'deseq2venn.png')
+dev.off()
 ```
 
 ```{r edgeR venn with color}
@@ -274,6 +279,10 @@ edgeR.venn.plot <- draw.quad.venn(
 
 require(gridExtra)
 grid.arrange(gTree(children=edgeR.venn.plot), top="Differential Expression using edgeR")
+
+#saves plot as png
+dev.copy(png,'edgrvenn.png')
+dev.off()
 ```
 
 ```{r limma venn with color}
@@ -301,6 +310,10 @@ limma.venn.plot <- draw.quad.venn(
 
 require(gridExtra)
 grid.arrange(gTree(children=limma.venn.plot), top="Differential Expression using limma")
+
+#saves plot as png
+dev.copy(png,'limmavenn.png')
+dev.off()
 ```
 
 Venn diagrams for aligners
@@ -405,11 +418,31 @@ dev.off()
 
 
 ```{r Combing aligners venn diagrams}
+#saved plots as png's in the code chunks they were created in
 
-aligners_venn_read <- lapply(list("venn_figs/sailfishvenn.png", "venn_figs/bowtievenn.png", "venn_figs/kallistovenn.png", "venn_figs/salmonvenn.png"), png::readPNG)
-combo_alignersvenn <- lapply(aligners_venn_read, grid::rasterGrob)
-do.call(gridExtra::grid.arrange, combo_alignersvenn)
+aligners_venn_read <- lapply(list("venn_figs/sailfishvenn.png", "venn_figs/bowtievenn.png", "venn_figs/kallistovenn.png", "venn_figs/salmonvenn.png"), png::readPNG) #creates a list of the png's I want to read and later combine. png::readPNG reads the list of png's I created
+combo_alignersvenn <- lapply(aligners_venn_read, grid::rasterGrob) #creates a list of the read png's and creates grobs (graphical raster objects..which is a rastered image of the png's)
+grid.arrange(grobs=combo_alignersvenn, ncol=2, 
+               top="Comparing Methods of RNAseq Alignment")
+#saves plot as png
+dev.copy(png,'combo_aligner_venn.png')
+dev.off()
 ```
+
+
+
+```{r Combing DE venn diagrams}
+#saved plots as png's in the code chunks they were created in
+de_venn_read <- lapply(list("venn_figs/deseq2venn.png", "venn_figs/edgrvenn.png", "venn_figs/limmavenn.png"), png::readPNG) #creates a list of the png's I want to read and later combine. png::readPNG reads the list of png's I created
+combo_devenn <- lapply(de_venn_read, grid::rasterGrob) #creates a list of the read png's and creates grobs (graphical raster objects..which is a rastered image of the png's)
+grid.arrange(grobs=combo_devenn, ncol=3, 
+               top="Comparison of Differential Expression Analysis Packages")
+
+#saves plot as png
+dev.copy(png,'combo_de_venn.png')
+dev.off()
+```
+
 
 
 ---------------------------------------------------------------
