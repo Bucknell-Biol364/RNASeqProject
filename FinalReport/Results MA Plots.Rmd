@@ -11,10 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-#Organized by aligner
+#*Organized by aligner*
+
 
 #Bowtie- Cheyenne
-
 
 ##limma
 ```{r}
@@ -38,7 +38,7 @@ bowtie_limma_MA
 bowtie_deseq_MA
 bowtie_edger_MA
 
-all_bowtie<- c(bowtie_limma, bowtie_deseq, bowtie_edger)
+all_bowtie<- c(bowtie_limma_MA, bowtie_deseq_MA, bowtie_edger_MA)
 
 all_bowtie
 ```
@@ -73,7 +73,7 @@ all_kallisto_MA<- c(kallisto_edger_MA, kallisto_limma_MA, kallisto_deseq_MA)
 ##DESeq
 ##EdgeR
 
-```{r Salmon Figures} 
+```{r salmon MA plot figures} 
 salmon_limma_MA <- knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
 salmon_deseq_MA <- knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
 salmon_edger_MA <- knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
@@ -82,7 +82,7 @@ salmon_limma_MA
 salmon_deseq_MA
 salmon_edger_MA
 
-all_salmon_MA <- c(salmon_limma_MA,salmon_deseq2_MA,salmon_edgeR_MA)
+all_salmon_MA <- c(salmon_limma_MA,salmon_deseq_MA,salmon_edger_MA)
 ```
 
 
@@ -91,7 +91,7 @@ all_salmon_MA <- c(salmon_limma_MA,salmon_deseq2_MA,salmon_edgeR_MA)
 ##DESeq
 ##EdgR
 
-```{r sailfish figures}
+```{r sailfish MA plot figures}
 sailfish_edger_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 sailfish_limma_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
 sailfish_deseq_MA <- knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png") 
@@ -103,14 +103,14 @@ sailfish_deseq_MA
 
 
 
-#Organized by DE Program
-##bowtie
-##kallisto
-##salmon
-##sailfish
+#*Organized by DE Program*
+bowtie
+kallisto
+salmon
+sailfish
 
-#limma
-```{r}
+##limma
+```{r limma DE program}
 bowtie_limma_MA
 kallisto_limma_MA
 salmon_limma_MA
@@ -118,19 +118,25 @@ sailfish_limma_MA
 ```
 
 
-#DESeq
-```{r}
-
+##DESeq
+```{r DESeq DE program}
+bowtie_deseq_MA
+kallisto_deseq_MA
 salmon_deseq_MA
 sailfish_deseq_MA
 ```
 
-#EdgR
-```{r}
-
+##EdgeR
+```{r EdgeR DE program}
+bowtie_edger_MA
+kallisto_edger_MA
+salmon_edger_MA
+sailfish_edger_MA
 ```
 
 
-Possibly helpful links
+
+
+#Possibly helpful links
 https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
 http://rforbiochemists.blogspot.com/2016/05/working-with-multiple-image-files.html
