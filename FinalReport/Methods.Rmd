@@ -1,0 +1,18 @@
+---
+title: "Project 3 Methods"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is a draft for the methods of Project 3 of BIOL 364 at Bucknell University. 
+This project utilized 12 pipeline to detect differentlially expressed genes (Table). The pipeline was two parts, with the first part being the use of one of four aligners. Aligners were used through Bucknell University's connection to Galaxy, a tool use Bison Net, Bucknell's high performance computing cluster. This allowed use of aligners through a graphical user interface, rather than the command line. 
+
+The second portion of the pipeline was the use of a program to detext differential expression of genes. Again, one of four programs were used (Table). This used a metadata file as well as a file of transciptomic data. These programs were also run though a graphical uner interface in DEBrowser, launched through the R package DEBrowser. Parameters used include: 
+
+
+Please feel free to edit!
