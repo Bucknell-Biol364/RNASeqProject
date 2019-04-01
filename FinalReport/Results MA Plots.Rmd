@@ -46,8 +46,6 @@ Based on initial viewing of the MA plots where Bowtie2 was the aligner used it l
 
 
 
-
-
 #Kallisto - Jordan
 ##limma
 ##DESeq
@@ -116,7 +114,7 @@ kallisto_limma_MA
 salmon_limma_MA
 sailfish_limma_MA
 ```
-
+Of the aligners used with limma, Kallisto had only one differentially expressed gene. Bowtie2 and Sailfish looked very similar though Sailfish seems to have more points closer to 0 on th y axis. Salmon had the most DE genes. 
 
 ##DESeq
 ```{r DESeq DE program}
@@ -125,6 +123,8 @@ kallisto_deseq_MA
 salmon_deseq_MA
 sailfish_deseq_MA
 ```
+For the DESeq aligner salmon only found 2 DE genes, both underexpressed. This is interesting because with limma salmon found the most DE genes. Sailfish seems to have the most genes, but Sailfish, Kallisto, and Bowtie2 seem to all yield similar results. With Kallisto and Sailfish there were several over and under expressed genes beyonf 1 or -1 on the y axis. 
+
 
 ##EdgeR
 ```{r EdgeR DE program}
