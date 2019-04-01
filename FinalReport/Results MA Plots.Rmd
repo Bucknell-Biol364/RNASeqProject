@@ -136,6 +136,8 @@ sailfish_edger_MA
 To rank the aligners from most DE genes to least when in combination with EdgeR: Bowtie2 and EdgeR with the most, then Sailfish, then Kallisto. However, Sailfish showed the most highly expressed DE genes. Kallisto also has more highly expressed DE genes (closer to 1 and -1). So the two aligners that had the least DE genes, had the most differentially expressed. 
 
 
+#Overall Summary:
+In conclusion, various pipelines produce varying results. I have not notice a clear trend yet...
 
 #Possibly helpful links
 https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
