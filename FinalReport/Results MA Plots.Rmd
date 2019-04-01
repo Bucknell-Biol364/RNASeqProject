@@ -11,9 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+#*Organized by aligner*
+
 
 #Bowtie- Cheyenne
-
 
 ##limma
 ```{r}
@@ -27,7 +28,7 @@ bowtie_deseq_MA <- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png")
 
 ##EdgR
 ```{r}
-bowtie_edgr_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
+bowtie_edger_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
 
 
@@ -35,68 +36,118 @@ bowtie_edgr_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png")
 ```{r}
 bowtie_limma_MA
 bowtie_deseq_MA
-bowtie_edgr_MA
+bowtie_edger_MA
 
-all_bowtie<- c(bowtie_limma, bowtie_deseq, bowtie_edgr)
+all_bowtie<- c(bowtie_limma_MA, bowtie_deseq_MA, bowtie_edger_MA)
 
 all_bowtie
 ```
+Based on initial viewing of the MA plots where Bowtie2 was the aligner used it looks like the number of differentially expressed genes varies with DE program (limma, DESeq, Edgr). Limma appears to have the least differentually expressed genes. DESeq and Edgr have more DE genes (about the same when comparing the two) but DESeq seems to have genes that are more differentially expressed, eg. further towards 1 and -1 on the y axis. 
+
+
+
+
 
 #Kallisto - Jordan
 ##limma
 ##DESeq
 ##EdgR
 
-```{r Kallisto figures} 
+```{r Kallisto MA plot figures} 
 kallisto_limma_MA<- knitr::include_graphics("figures/Simpson.png") 
-kallisto_edgeR_MA<- knitr::include_graphics("figures/MA_kallisto_edgeR.png")
+kallisto_edger_MA<- knitr::include_graphics("figures/MA_kallisto_edgeR.png")
+kallisto_deseq_MA<- knitr::include_graphics("figures/kallistoDESeq_Sussman.png")
 ```
 
-```{r}
-kallisto_edgeR_MA
+```{r Kallisto MA plot figures part 2}
+kallisto_edger_MA
 kallisto_limma_MA
+kallisto_deseq_MA
 
-all_kallisto_MA<- c(kallisto_edgeR_MA, kallisto_limma_MA)
+all_kallisto_MA<- c(kallisto_edger_MA, kallisto_limma_MA, kallisto_deseq_MA)
 ```
-
-
-
 
 
 #Salmon
-
 ##limma
 ##DESeq
-##EdgR
+##EdgeR
 
+```{r salmon MA plot figures} 
+salmon_limma_MA <- knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
+salmon_deseq_MA <- knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
+salmon_edger_MA <- knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
 
-#SailFish
+salmon_limma_MA
+salmon_deseq_MA
+salmon_edger_MA
 
-=======
-```{r Salmon Figures} 
-knitr::include_graphics("figures/McKinleySalmonLimmaMAPlot.png")
-knitr::include_graphics("figures/salmon_deseq2_maplot.png") 
-knitr::include_graphics("figures/KE_Salmon_EdgeR_MAPlot.png") 
+all_salmon_MA <- c(salmon_limma_MA,salmon_deseq_MA,salmon_edger_MA)
 ```
 
-#SailFish
+
+#SailFish - Matt
+##limma
+
+##DESeq
+
+##EdgR
+
+```{r sailfish MA plot figures}
+sailfish_edger_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
+sailfish_limma_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
+sailfish_deseq_MA <- knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png") 
+sailfish_edger_MA
+sailfish_limma_MA
+sailfish_deseq_MA
+```
 
 
+It appears that Limma has the least differentially expressed genes out of these three pipelines. EdgeR and DESeq2 have similar amounts of differentially expressed genes in terms of the total number of differentially expressed genes, but DESeq certainly had the most. These two pipelines also seem to have a more normal distribution of differentially expressed genes. There are high and low levels of differential gene expression across different gene abundances. But, in the EdgeR pipeline, it seems that there is a correlation between gene abundance and the the level of differential expression. As the gene becomes more abundant, its level of differential expression decreases. DESeq combines both of these aspects. There is a slight correlation between differential expression and gene abundance at lower abundances, but as abundance increases, the level of differential expression becomes more normally distributed.
+
+#*Organized by DE Program*
+bowtie
+kallisto
+salmon
+sailfish
+
+<<<<<<< HEAD
 ```{r sailfish figures}
 sailfish_EdgeR_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
 sailfish_limma_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
 sailfish_DESeq2_MA <- knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png") 
 sailfish_EdgeR_MA
+=======
+##limma
+  
+```{r limma DE program}
+bowtie_limma_MA
+kallisto_limma_MA
+salmon_limma_MA
+>>>>>>> c3c7173c56d73c0bd8885d1d25c4fddc44f02020
 sailfish_limma_MA
-sailfish_DESeq2_MA
 ```
 
 
-##limma
 ##DESeq
-##EdgR
+```{r DESeq DE program}
+bowtie_deseq_MA
+kallisto_deseq_MA
+salmon_deseq_MA
+sailfish_deseq_MA
+```
+
+##EdgeR
+```{r EdgeR DE program}
+bowtie_edger_MA
+kallisto_edger_MA
+salmon_edger_MA
+sailfish_edger_MA
+```
+To rank the aligners from most DE genes to least when in combination with EdgeR: Bowtie2 and EdgeR with the most, then Sailfish, then Kallisto. However, Sailfish showed the most highly expressed DE genes. Kallisto also has more highly expressed DE genes (closer to 1 and -1). So the two aligners that had the least DE genes, had the most differentially expressed. 
 
 
-Possibly helpful links
+
+#Possibly helpful links
 https://stackoverflow.com/questions/3668102/plotting-several-jpeg-images-in-a-single-display
 http://rforbiochemists.blogspot.com/2016/05/working-with-multiple-image-files.html
