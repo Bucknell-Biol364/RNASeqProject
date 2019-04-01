@@ -103,26 +103,23 @@ sailfish_deseq_MA
 
 It appears that Limma has the least differentially expressed genes out of these three pipelines. EdgeR and DESeq2 have similar amounts of differentially expressed genes in terms of the total number of differentially expressed genes, but DESeq certainly had the most. These two pipelines also seem to have a more normal distribution of differentially expressed genes. There are high and low levels of differential gene expression across different gene abundances. But, in the EdgeR pipeline, it seems that there is a correlation between gene abundance and the the level of differential expression. As the gene becomes more abundant, its level of differential expression decreases. DESeq combines both of these aspects. There is a slight correlation between differential expression and gene abundance at lower abundances, but as abundance increases, the level of differential expression becomes more normally distributed.
 
+
+
+
+
+
 #*Organized by DE Program*
 bowtie
 kallisto
 salmon
 sailfish
 
-<<<<<<< HEAD
-```{r sailfish figures}
-sailfish_EdgeR_MA <- knitr::include_graphics("figures/JustinKoss.sailfish.edgeR.png") 
-sailfish_limma_MA <- knitr::include_graphics("figures/Ritter_DEBrowser_image.png") 
-sailfish_DESeq2_MA <- knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png") 
-sailfish_EdgeR_MA
-=======
+
 ##limma
-  
 ```{r limma DE program}
 bowtie_limma_MA
 kallisto_limma_MA
 salmon_limma_MA
->>>>>>> c3c7173c56d73c0bd8885d1d25c4fddc44f02020
 sailfish_limma_MA
 ```
 Of the aligners used with limma, Kallisto had only one differentially expressed gene. Bowtie2 and Sailfish looked very similar though Sailfish seems to have more points closer to 0 on th y axis. Salmon had the most DE genes. 
