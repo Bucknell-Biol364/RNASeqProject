@@ -20,17 +20,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r bowtie limma MA}
 bowtie_limma_MA <- knitr::include_graphics("figures/Bowtie_limma_MA_Moore.png") 
 ```
-
 ##DESeq
 ```{r bowtie DESeq MA}
 bowtie_deseq_MA <- knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
 ```
-
 ##EdgR
 ```{r bowtie EdgeR MA}
 bowtie_edger_MA <- knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
-
 
 ##All Bowtie
 ```{r all bowtie MA}
