@@ -150,11 +150,11 @@ To rank the aligners from most DE genes to least when in combination with EdgeR:
 Bowtie most:EdgeR? but DESeq has more genes expressed near 1 or -1
 Bowtie least: Limma
 
-Kallisto most:
-Kallisto least:
+Kallisto most:DESeq
+Kallisto least:limma 
 
-Salmon most:
-Salmon least:
+Salmon most:EdgeR
+Salmon least:DESeq
 
 Sailfish most: DESeq
 Sailfish least: Limma
