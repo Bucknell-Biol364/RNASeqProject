@@ -1,37 +1,577 @@
 ---
-title: "Group Project: Tables"
+title: 'Group Project: Tables'
 author: "The table group"
 date: "3/26/2019"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
   html_document:
-    toc: true
+    number_sections: yes
+    toc: yes
     toc_depth: 2
-    toc_float: true
-    number_sections: true
+    toc_float: yes
 ---
+```{r Tables Packages}
+if (!require("venn")) install.packages("venn"); library(venn)
+if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
+if (!require("grid")) install.packages("grid"); library(grid)
+if (!require("gridExtra")) install.packages("gridExtra"); library(gridExtra)
+if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
+```
+
 
 # Loading in Tables
-```{r}
-bowtie_deseq_table <- read_csv("tables/bowtie2_deseq2_transcript.csv") 
-bowtie_edgeR_table <- read_csv("tables/Bowtie2EdgeR_McGauley.csv")
-bowtie_limma_table <- read_csv("tables/Moore_bowtie_limma.csv")
+```{r Uploading data}
+bowtie_deseq_table <- read.csv("tables/bowtie2_deseq2_transcript.csv") 
+bowtie_edgeR_table <- read.csv("tables/Bowtie2EdgeR_McGauley.csv")
+bowtie_limma_table <- read.csv("tables/Moore_bowtie_limma.csv")
 
-kallisto_edgeR_table <- read_csv("tables/julie_kallisto_edgeR_final.csv")
-kallisto_limma_table <- read_csv("tables/SimpsonTable.csv")
-kallisto_deseq_table <- read_csv("tables/kallistoDESeq_Sussman.csv")
+kallisto_edgeR_table <- read.csv("tables/julie_kallisto_edgeR_final.csv")
+kallisto_limma_table <- read.csv("tables/SimpsonTable.csv")
+kallisto_deseq_table <- read.csv("tables/kallistoDESeq_Sussman.csv")
+kallisto_deseq_table <- kallisto_deseq_table[1:4]
 
-salmon_limma_table <- read_csv("tables/McKinleySalmonLimmaGeneInfo.csv")
-salmon_edgeR_table <- read_csv("tables/KE_Salmon_EdgeR_final.csv")
-salmon_deseq_table <- read_csv("tables/salmondeseq2.csv")
 
-sailfish_limma_table <- read_csv("tables/Ritter_sailfish_limma.table.csv")
-sailfish_edgeR_table <- read_csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
+salmon_limma_table <- read.csv("tables/McKinleySalmonLimmaGeneInfo.csv")
+salmon_edgeR_table <- read.csv("tables/KE_Salmon_EdgeR_final.csv")
+salmon_deseq_table <- read.csv("tables/salmondeseq2.csv")
 
+sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv")
+sailfish_edgeR_table <- read.csv("tables/JustinKoss.sailfish.edgeR.updown.csv")
+sailfish_deseq_table <- read.csv("tables/Vogel_Sailfish_DESeq2.csv")
+```
+
+```{r Checking column names}
+colnames(bowtie_deseq_table)
+colnames(bowtie_edgeR_table)
+colnames(bowtie_limma_table)
+
+colnames(kallisto_deseq_table)
+colnames(kallisto_edgeR_table)
+colnames(kallisto_limma_table)
+
+colnames(salmon_deseq_table)
+colnames(salmon_edgeR_table)
+colnames(salmon_limma_table)
+
+colnames(sailfish_deseq_table)
+colnames(sailfish_edgeR_table)
+colnames(sailfish_limma_table)
+colnames(sailfish_limma_table)[1] <- "Align"
 
 ```
+
 
 #Creating a super table
-```{r}
-complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table)
+```{r Table Generation}
+complete_table <- rbind(bowtie_deseq_table, bowtie_edgeR_table, bowtie_limma_table, kallisto_edgeR_table, kallisto_limma_table, kallisto_deseq_table, salmon_limma_table, salmon_edgeR_table, salmon_deseq_table, sailfish_limma_table, sailfish_edgeR_table, sailfish_deseq_table)
+write.csv(complete_table, file ="tables/All_pipelines_complete_table.csv", quote = FALSE)
+
+#confirming number of rows is correct in new table
+nrow(bowtie_deseq_table) +nrow(bowtie_edgeR_table) +nrow(bowtie_limma_table) +nrow(kallisto_deseq_table) +nrow(kallisto_edgeR_table) +nrow(kallisto_limma_table) +nrow(salmon_deseq_table) +nrow(salmon_edgeR_table) +nrow(salmon_limma_table) +nrow(sailfish_limma_table) +nrow(sailfish_edgeR_table)+nrow(sailfish_deseq_table) == nrow(complete_table)
+
+#not getting the right number of responses here, perhaps a capitalization issue
+n_distinct(complete_table$Align)
+unique(complete_table$Align)
+n_distinct(complete_table$DE)
+unique(complete_table$DE)
+```
+#DE work
+##Preparing individual DE tables
+```{r Venn Diagram prep DESeq2}
+DESeq_venn <- filter(complete_table, DE == "DESeq2")
+
+nrow(filter(DESeq_venn, Align == "bowtie2")) #478
+nrow(filter(DESeq_venn, Align == "kallisto")) #431
+nrow(filter(DESeq_venn, Align == "salmon")) #2
+nrow(filter(DESeq_venn, Align == "sailfish")) #645
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(DESeq_venn, Align == "bowtie2")) +
+nrow(subset(DESeq_venn, Align == "kallisto")) +
+nrow(subset(DESeq_venn, Align == "salmon")) +
+nrow(subset(DESeq_venn, Align == "sailfish")) == nrow(DESeq_venn)
 ```
 
+```{r Venn Diagram prep edgeR}
+edgeR_venn <- filter(complete_table, DE == "edgeR")
+
+nrow(filter(edgeR_venn, Align == "bowtie2")) #537
+nrow(filter(edgeR_venn, Align == "kallisto")) #319
+nrow(filter(edgeR_venn, Align == "salmon")) #541
+nrow(filter(edgeR_venn, Align == "sailfish")) #395
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(edgeR_venn, Align == "bowtie2")) +
+nrow(subset(edgeR_venn, Align == "kallisto")) +
+nrow(subset(edgeR_venn, Align == "salmon")) +
+nrow(subset(edgeR_venn, Align == "sailfish")) == nrow(edgeR_venn)
+```
+
+```{r Venn Diagram prep limma}
+limma_venn <- filter(complete_table, DE == "limma")
+
+nrow(filter(limma_venn, Align == "bowtie2")) #182
+nrow(filter(limma_venn, Align == "kallisto")) #1
+nrow(filter(limma_venn, Align == "salmon")) #338
+nrow(filter(limma_venn, Align == "sailfish")) #213
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(limma_venn, Align == "bowtie2")) +
+nrow(subset(limma_venn, Align == "kallisto")) +
+nrow(subset(limma_venn, Align == "salmon")) +
+nrow(subset(limma_venn, Align == "sailfish")) == nrow(limma_venn)
+```
+##Venn Diagram Work: DE
+
+Trying the package venn: success!
+```{r venn Diagram for DE}
+library(venn)
+#DESeq
+venn_DESeq_list <- list(bowtie = subset(DESeq_venn, Align == "bowtie2")$GeneName, kallisto = subset(DESeq_venn, Align == "kallisto")$GeneName, salmon = subset(DESeq_venn, Align == "salmon")$GeneName, sailfish = subset(DESeq_venn, Align == "sailfish")$GeneName)
+venn_DESeq_plot <- venn(venn_DESeq_list, show.plot=TRUE)
+
+#edgeR
+venn_edgeR_list <- list(bowtie = subset(edgeR_venn, Align == "bowtie2")$GeneName, kallisto = subset(edgeR_venn, Align == "kallisto")$GeneName, salmon = subset(edgeR_venn, Align == "salmon")$GeneName, sailfish = subset(edgeR_venn, Align == "sailfish")$GeneName)
+venn_edgeR_plot <- venn(venn_edgeR_list, show.plot=TRUE)
+
+#limma
+venn_limma_list <- list(bowtie = subset(limma_venn, Align == "bowtie2")$GeneName, kallisto = subset(limma_venn, Align == "kallisto")$GeneName, salmon = subset(limma_venn, Align == "salmon")$GeneName, sailfish = subset(limma_venn, Align == "sailfish")$GeneName)
+venn_limma_plot <- venn(venn_limma_list, show.plot=TRUE)
+
+```
+
+
+#Aligner work
+##Preparing individual aligner tables
+```{r Venn Diagram prep bowtie2}
+bowtie2_venn <- filter(complete_table, Align == "bowtie2")
+
+nrow(filter(bowtie2_venn, DE == "DESeq2")) #478
+nrow(filter(bowtie2_venn, DE == "edgeR")) #537
+nrow(filter(bowtie2_venn, DE == "limma")) #182
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(bowtie2_venn, DE == "DESeq2")) +
+nrow(subset(bowtie2_venn, DE == "edgeR")) +
+nrow(subset(bowtie2_venn, DE == "limma")) == nrow(bowtie2_venn)
+```
+
+```{r Venn Diagram prep kallisto}
+kallisto_venn <- filter(complete_table, Align == "kallisto")
+
+nrow(filter(kallisto_venn, DE == "DESeq2")) #431
+nrow(filter(kallisto_venn, DE == "edgeR")) #319
+nrow(filter(kallisto_venn, DE == "limma")) #1
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(kallisto_venn, DE == "DESeq2")) +
+nrow(subset(kallisto_venn, DE == "edgeR")) +
+nrow(subset(kallisto_venn, DE == "limma")) == nrow(kallisto_venn)
+```
+
+```{r Venn Diagram prep salmon}
+salmon_venn <- filter(complete_table, Align == "salmon")
+
+nrow(filter(salmon_venn, DE == "DESeq2")) #2
+nrow(filter(salmon_venn, DE == "edgeR")) #541
+nrow(filter(salmon_venn, DE == "limma")) #338
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(salmon_venn, DE == "DESeq2")) +
+nrow(subset(salmon_venn, DE == "edgeR")) +
+nrow(subset(salmon_venn, DE == "limma")) == nrow(salmon_venn)
+```
+
+```{r Venn Diagram prep sailfish}
+sailfish_venn <- filter(complete_table, Align == "sailfish")
+
+nrow(filter(sailfish_venn, DE == "DESeq2")) #645
+nrow(filter(sailfish_venn, DE == "edgeR")) #395
+nrow(filter(sailfish_venn, DE == "limma")) #213
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(sailfish_venn, DE == "DESeq2")) +
+nrow(subset(sailfish_venn, DE == "edgeR")) +
+nrow(subset(sailfish_venn, DE == "limma")) == nrow(sailfish_venn)
+```
+##Venn Diagram Work: Aligners
+
+Trying the package venn: success!
+```{r venn Diagram for Aligners}
+#bowtie2
+venn_bowtie2_list <- list(DESeq2 = subset(bowtie2_venn, DE == "DESeq2")$GeneName, edgeR = subset(bowtie2_venn, DE == "edgeR")$GeneName, limma = subset(bowtie2_venn, DE == "limma")$GeneName)
+venn_bowtie2_plot <- venn(venn_bowtie2_list, show.plot=TRUE)
+
+#kallisto
+venn_kallisto_list <- list(DESeq2 = subset(kallisto_venn, DE == "DESeq2")$GeneName, edgeR = subset(kallisto_venn, DE == "edgeR")$GeneName, limma = subset(kallisto_venn, DE == "limma")$GeneName)
+venn_kallisto_plot <- venn(venn_kallisto_list, show.plot=TRUE)
+
+#salmon
+venn_salmon_list <- list(DESeq2 = subset(salmon_venn, DE == "DESeq2")$GeneName, edgeR = subset(salmon_venn, DE == "edgeR")$GeneName, limma = subset(salmon_venn, DE == "limma")$GeneName)
+venn_bowtie2_plot <- venn(venn_bowtie2_list, show.plot=TRUE)
+
+#sailfish
+venn_sailfish_list <- list(DESeq2 = subset(sailfish_venn, DE == "DESeq2")$GeneName, edgeR = subset(sailfish_venn, DE == "edgeR")$GeneName, limma = subset(sailfish_venn, DE == "limma")$GeneName)
+venn_sailfish_plot <- venn(venn_sailfish_list, show.plot=TRUE)
+
+```
+
+
+# Julie's attempt at venn diagrams
+I had to run the code above to get the correct numbers for each overlap. So that's still necessary. But this is another way to display the info but with color :) !!!
+
+Venn diagrams for DE
+
+```{r DESeq2 venn with color}
+DESeq2.venn.plot <- draw.quad.venn(
+  area1 = 431,
+  area2 = 478,
+  area3 = 2,
+  area4 = 645,
+  n12 = 294,
+  n13 = 0,
+  n14 = 354,
+  n23 = 0,
+  n24 = 365,
+  n34 = 0,
+  n123 = 0,
+  n124 = 273,
+  n134 = 0,
+  n234 = 0,
+  n1234 = 0,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+require(gridExtra)
+grid.arrange(gTree(children=DESeq2.venn.plot), top="Differential Expression using DESeq2")
+
+#saves plot as png
+dev.copy(png,'venn_figs/deseq2venn.png')
+dev.off()
+```
+
+```{r edgeR venn with color}
+edgeR.venn.plot <- draw.quad.venn(
+  area1 = 319,
+  area2 = 537,
+  area3 = 541,
+  area4 = 395,
+  n12 = 260,
+  n13 = 260,
+  n14 = 264,
+  n23 = 536,
+  n24 = 332,
+  n34 = 332,
+  n123 = 260,
+  n124 = 243,
+  n134 = 243,
+  n234 = 332,
+  n1234 = 243,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=edgeR.venn.plot), top="Differential Expression using edgeR")
+
+#saves plot as png
+dev.copy(png,'venn_figs/edgrvenn.png')
+dev.off()
+```
+
+```{r limma venn with color}
+limma.venn.plot <- draw.quad.venn(
+  area1 = 1,
+  area2 = 182,
+  area3 = 338,
+  area4 = 213,
+  n12 = 1,
+  n13 = 1,
+  n14 = 1,
+  n23 = 156,
+  n24 = 143,
+  n34 = 183,
+  n123 = 1,
+  n124 = 1,
+  n134 = 1,
+  n234 = 136,
+  n1234 = 1,
+  category = c("kallisto", "bowtie2", "salmon", "sailfish"),
+  fill = c("orange", "red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=limma.venn.plot), top="Differential Expression using limma")
+
+#saves plot as png
+dev.copy(png,'venn_figs/limmavenn.png')
+dev.off()
+```
+
+Venn diagrams for aligners
+
+```{r bowtie2 venn with color}
+bowtie2.venn.plot = draw.triple.venn(
+  area1 = 478,
+  area2 = 537,
+  area3 = 182,
+  n12 = 298,
+  n23 = 163,
+  n13 = 181,
+  n123 = 162,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=bowtie2.venn.plot), top="Differential Expression using bowtie2")
+
+#saves plot as png
+dev.copy(png,'venn_figs/bowtievenn.png')
+dev.off()
+```
+
+```{r kallisto venn with color}
+kallisto.venn.plot = draw.triple.venn(
+  area1 = 431,
+  area2 = 319,
+  area3 = 1,
+  n12 = 242,
+  n23 = 1,
+  n13 = 1,
+  n123 = 1,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+
+require(gridExtra)
+grid.arrange(gTree(children=kallisto.venn.plot), top="Differential Expression using kallisto")
+
+#saves plot as png
+dev.copy(png,'venn_figs/kallistovenn.png')
+dev.off()
+
+```
+
+```{r salmon venn with color}
+salmon.venn.plot = draw.triple.venn(
+  area1 = 478,
+  area2 = 537,
+  area3 = 182,
+  n12 = 298,
+  n23 = 163,
+  n13 = 181,
+  n123 = 162,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+)
+
+require(gridExtra)
+grid.arrange(gTree(children=salmon.venn.plot), top="Differential Expression using salmon")
+
+#saves plot as png
+dev.copy(png,'venn_figs/salmonvenn.png')
+dev.off()
+```
+
+```{r sailfish venn with color}
+sailfish.venn.plot = draw.triple.venn(
+  area1 = 645,
+  area2 = 395,
+  area3 = 213,
+  n12 = 289,
+  n23 = 201,
+  n13 = 213,
+  n123 = 201,
+  category = c("DESeq2", "edgeR", "limma"),
+  fill = c("red", "green", "blue"),
+  cex = 1,
+  cat.cex = 1
+) -> sailfishvenn
+
+require(gridExtra)
+grid.arrange(gTree(children=sailfish.venn.plot), top="Differential Expression using sailfish")
+
+#saves plot as png
+dev.copy(png,'venn_figs/sailfishvenn.png')
+dev.off()
+
+```
+
+
+
+
+
+```{r Combing aligners venn diagrams}
+#saved plots as png's in the code chunks they were created in
+
+aligners_venn_read <- lapply(list("venn_figs/sailfishvenn.png", "venn_figs/bowtievenn.png", "venn_figs/kallistovenn.png", "venn_figs/salmonvenn.png"), png::readPNG) #creates a list of the png's I want to read and later combine. png::readPNG reads the list of png's I created
+combo_alignersvenn <- lapply(aligners_venn_read, grid::rasterGrob) #creates a list of the read png's and creates grobs (graphical raster objects..which is a rastered image of the png's)
+grid.arrange(grobs=combo_alignersvenn, ncol=2, 
+               top="Comparing Methods of RNAseq Alignment")
+#saves plot as png
+dev.copy(png,'venn_figs/combo_aligner_venn.png')
+dev.off()
+```
+
+
+
+```{r Combing DE venn diagrams}
+#saved plots as png's in the code chunks they were created in
+de_venn_read <- lapply(list("venn_figs/deseq2venn.png", "venn_figs/edgrvenn.png", "venn_figs/limmavenn.png"), png::readPNG) #creates a list of the png's I want to read and later combine. png::readPNG reads the list of png's I created
+combo_devenn <- lapply(de_venn_read, grid::rasterGrob) #creates a list of the read png's and creates grobs (graphical raster objects..which is a rastered image of the png's)
+grid.arrange(grobs=combo_devenn, ncol=3, 
+               top="Comparison of Differential Expression Analysis Packages")
+#saves plot as png
+dev.copy(png,'venn_figs/combo_de_venn.png')
+dev.off()
+```
+
+
+
+---------------------------------------------------------------
+
+#Everything below here is a failure
+```{r Venn Diagram attemp prepping for DESeq2}
+DESeq_venn <- filter(complete_table, DE == "DESeq2")
+
+nrow(filter(DESeq_venn, Align == "bowtie2")) #478
+nrow(filter(DESeq_venn, Align == "kallisto")) #431
+nrow(filter(DESeq_venn, Align == "salmon")) #2
+nrow(filter(DESeq_venn, Align == "sailfish")) #645
+
+#again, double checking that these add up to the total number of roles in the complete table
+nrow(subset(DESeq_venn, Align == "bowtie2")) +
+nrow(subset(DESeq_venn, Align == "kallisto")) +
+nrow(subset(DESeq_venn, Align == "salmon")) +
+nrow(subset(DESeq_venn, Align == "sailfish")) == nrow(DESeq_venn)
+
+#looking for overlap
+
+#number of genes that Bowtie and kallisto share
+combo_bowtie2_kallisto <- filter(DESeq_venn, Align == "bowtie2" | Align == "kallisto")
+nrow(combo_bowtie2_kallisto) - n_distinct(combo_bowtie2_kallisto$GeneName) #294
+
+#bowtie2 and salmon
+combo_bowtie2_salmon <- filter(DESeq_venn, Align == "bowtie2" | Align == "salmon")
+nrow(combo_bowtie2_salmon) - n_distinct(combo_bowtie2_salmon$GeneName) #0
+
+#bowtie2 and sailfish
+combo_bowtie2_sailfish <- filter(DESeq_venn, Align == "bowtie2" | Align == "sailfish")
+nrow(combo_bowtie2_sailfish) - n_distinct(combo_bowtie2_sailfish$GeneName) #365
+
+#kallisto and salmon
+combo_kallisto_salmon <- filter(DESeq_venn, Align == "kallisto" | Align == "salmon")
+nrow(combo_kallisto_salmon) - n_distinct(combo_kallisto_salmon$GeneName) #0
+
+#kallisto and sailfish
+combo_kallisto_sailfish <- filter(DESeq_venn, Align == "kallisto" | Align == "sailfish")
+nrow(combo_kallisto_sailfish) - n_distinct(combo_kallisto_sailfish$GeneName) #354
+
+#salmon and sailfish
+combo_salmon_sailfish <- filter(DESeq_venn, Align == "salmon" | Align == "sailfish")
+nrow(combo_salmon_sailfish) - n_distinct(combo_salmon_sailfish$GeneName) #0
+
+#bowtie2, kallisto, salmon (123) =0
+
+
+#bowtie2, kallisto, sailfish (124)
+
+
+#bowtie2, salmon, sailfish (134) =0 
+#kallisto, salmon, sailfish (234) =0
+#bowtie2 kallisto, salmon, sailfish 1234 =0
+
+
+```
+bowtie2= area1
+kallisto= area2
+salmon = area3
+sailfish = area4
+
+```{r DESeq2 Venn Diagram}
+
+#grid.newpage()
+#draw.quad.venn(area1 = 478, area2 = 431, area3 = 2, area4 = 645, n12=294, n13=0, n14=365, n23=0, n24=354, n34=0, n123 =0, n124=365, n134=0, n234=0, n1234=0, scaled = FALSE)
+```
+
+
+url to package info: https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf
+
+url to tutorial: https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html
+
+Looks like we can use "draw.triple.venn()" and "draw.quad.venn()". Check out the tutorial for some good info about specifics but it looks like we just need the sizes of each group (genes by bowtie, kallisto, etc). There are also some functions that appear to generate lists of different portions shared by the groups..I think the calculate.overlap() will do this and we just have to specify which groups you want to compare
+
+Trying overlap function.
+```{r}
+overlap3 <- calculate.overlap(x = list("bowtie2" = filter(DESeq_venn, Align == "bowtie2")$GeneName,"kallisto" = filter(DESeq_venn, Align == "kallisto")$GeneName,"salmon" = filter(DESeq_venn, Align == "salmon")$GeneName, "sailfish" = filter(DESeq_venn, Align == "sailfish")$GeneName));
+overlap3
+#a6=0
+#a12=0
+#a11=273
+#a5 = 0
+#a7=0
+#a19=21
+#a4=0
+#a10=92
+#a13=0
+#a8=81
+#a2=0
+#a9=92
+#a14=56
+#a1=2
+#a3=199
+
+```
+
+
+```{r Combinig aligner venns}
+library("png") # for reading in PNGs
+
+# Reading png's
+sfv <- readPNG("venn_figs/sailfishvenn.png")
+btv <- readPNG("venn_figs/bowtievenn.png") 
+kv <- readPNG("venn_figs/kallistovenn.png")
+sv <- readPNG("venn_figs/salmonvenn.png")
+
+# setup plot
+#dev.off()
+par(mai=rep(0,4)) # no margins
+
+# layout the plots into a matrix w/ 2 columns, by row
+layout(matrix(1:4, ncol=2, byrow=TRUE))
+
+# do the plotting
+for(i in 1:4) {
+  plot(NA,xlim=0:1,ylim=0:1,bty="n",axes=0,xaxs = 'i',yaxs='i')
+  rasterImage(sfv,0,0,1,1) 
+  rasterImage(btv,0,0,1,1) 
+  rasterImage(kv,0,0,1,1) 
+  rasterImage(sv,0,0,1,1)
+}
+
+# write to PDF
+#dev.print(pdf, "output.pdf")
+```
+```
+Sources:
+
+combo images
+https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html
+https://www.rdocumentation.org/packages/grid/versions/3.5.3
+https://stackoverflow.com/questions/23750305/how-can-i-make-multipanel-plots-of-several-png-files-in-r?lq=1
