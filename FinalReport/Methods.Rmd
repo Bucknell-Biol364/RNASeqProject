@@ -23,6 +23,12 @@ Alligners:
   Salmon
 
   Sailfish
+    1) For `Select a reference transcriptome from your history or use a built-in index?` select "Use one from history".
+    2) Select the Drosophila_melanogaster.BDGP6.cdna.all.fa.gz file for the reference genome
+    3) Select Single-end and the FASTQ file(s) as appropriate
+    4) Select the gtf.gz file for the `File containing a mapping of transcripts to genes`
+    5) Leave all of the other options alone.
+    6) Execute!
   
 DEBrowser:
 
