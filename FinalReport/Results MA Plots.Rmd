@@ -63,7 +63,7 @@ all_kallisto_MA<- c(kallisto_edger_MA, kallisto_limma_MA, kallisto_deseq_MA)
 ```
 
 
-#Salmon
+#Salmon - Katie
 ##limma
 ##DESeq
 ##EdgeR
@@ -79,6 +79,7 @@ salmon_edger_MA
 
 all_salmon_MA <- c(salmon_limma_MA,salmon_deseq_MA,salmon_edger_MA)
 ```
+Different aligners identified different numbers of differentially expressed genes, with DESeq finding the least and EdgeR finding the most, though it's fairly comparable to Limma. DESeq only found 2 significantly up regulated genes and no significantly down regulated genes. All of the genes with this aligner were expressed at lower levels than the others (smaller y axis), though the spread was larger (x axis). Overall, Limma and EdgeR have similar results, but EdgeR identified more genes closer to the x-axis that were differentially expressed compared to Limma, resulting in a curve toward 0. 
 
 
 #SailFish - Matt
@@ -144,7 +145,7 @@ To rank the aligners from most DE genes to least when in combination with EdgeR:
 
 #Least and Most DE Genes
 ##By aligner
-Bowtie most:EdgeR? but DESeq has more genes expressed near 1 or -1
+Bowtie most: EdgeR? but DESeq has more genes expressed near 1 or -1
 Bowtie least: Limma
 
 Kallisto most:DESeq
@@ -155,6 +156,17 @@ Salmon least:DESeq
 
 Sailfish most: DESeq
 Sailfish least: Limma
+
+```{r}
+aligner <- c("Bowtie","Kallisto","Salmon","Sailfish")
+mostDEaligner <- c("EdgeR","DESeq","EdgeR","DESeq")
+leastDEaligner <- c("Limma","Limma","DESeq","Limma")
+DE_by_aligner <-data.frame(Aligner=aligner,
+                           Most_DE_Genes=mostDEaligner,
+                           Least_DE_Genes=leastDEaligner)
+DE_by_aligner
+```
+
 
 ##By DE Program
 Limma most: Salmon
@@ -167,7 +179,15 @@ EdgeR most:Bowtie or Salmon
 EdgeR least: Kallisto
 
 
-*maybe someone could make this a table once we get all the info :) 
+```{r}
+program <- c("Limma","DESeq","EdgeR")
+mostDEprogram <- c("Salmon","Sailfish","Bowtie/Salmon")
+leastDEprogram <- c("Kallisto","Salmon","Kallisto")
+DE_by_program <-data.frame(DE_Program=program,
+                           Most_DE_Genes=mostDEprogram,
+                           Least_DE_Genes=leastDEprogram)
+DE_by_program
+```
 
 #Overall Summary:
 In conclusion, various pipelines produce varying results. When looking at DE Programs it seems like Kallisto generally finds fewer differentially expressed genes. 
