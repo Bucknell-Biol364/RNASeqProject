@@ -1,0 +1,34 @@
+---
+title: "Introduction"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Transcriptomics is the study of all the RNA molecules within a cell, otherwise known as the transcriptome. The reason why the study of transcriptomics is important is due to the fact that alternative splicing plays a major role in the production of RNA transcripts. Alternative splicing, due to the binding of different proteins, can splice together different sets of exons to form many different RNA genes from the same transcript. Performing a transcriptomics study can help identify all the different splice sites and the level of transcription of each gene. 
+RNA sequencing (RNA-Seq) is a powerful technique in transcriptomic research that has replaced microarray techniques for the study of gene expression. The actual sequencing of biological specimens is performed instrumentally, but the large amounts of data produced require highly computational data analysis. The typical workflow of a transcriptomics experiment are experimental design, sequencing design, quality control, alignment and quantification, differential expression testing, then functional profiling. The rapid development of RNA-seq procedures has resulted in several different transcriptomic pipelines that can be utilized to analyze sequencing data. Williams et al. explored this issue by investigating 219 different transcriptomic workflows to analyze the same set of sequencing data. In general, multiple combinations of the read aligners and differential expression tools were utilized to determine differences in transcription among immunologic samples. The identification of differentially-expressed genes was highly dependent on the choice of transcriptomics pipeline, indicating that overall RNA-Seq techniques are not uniform in determining differential expression. 
+In this study, data was pulled from a paper by Brooks et al. that looked at the effect that a certain protein had on the transcription of certain genes. In the Brooks study, the exons were treated with RNAi’s that regulated how the exons were spliced together to help identify genes that were regulated by Pasilla. We then performed a transcriptomics study to measure which genes became up-regulated and which genes became down-regulated when comparing the treatment (RNAi treatment) to the control. However, since transcriptomics relies on computer models that have to be designed, differing models will generate different results on which genes were up- and down-regulated. 
+One of the major ways that these models may differ is in the type of aligner that is used. We used four different aligners: Salmon, Kallisto, Bowtie2, and Sailfish. There are two main types of aligners: splice-aware alignment and pseudo-alignment. In splice-aware alignment, the sequence reads are mapped directly to the reference genome. This allows splice junctions to be mapped, as well as novel gene mapping. This method is slow, as it requires a large amount of memory and processing time. Bowtie2 and Sailfish are splice-aware aligners. Pseudo-alignment is much faster, as it maps to a reference transcriptome instead of a genome. Additionally, the reads are not directly aligned, and are instead determined based on their compatibility with known transcripts. Salmon, and Kallisto are pseudo-aligners.
