@@ -62,6 +62,8 @@ kallisto_deseq_MA
 all_kallisto_MA<- c(kallisto_edger_MA, kallisto_limma_MA, kallisto_deseq_MA)
 ```
 
+Kallisto Limma had one differentially expressed transcript at the p value of 0.01, whereas edgeR and deseq had more differentially expressed transcripts, that seemed comparable to each other. This would support the notion that DE methods make the difference when it comes to differentially expressed transcripts. This is essentially the same thing that the other aligners have mentioned/saw.
+
 
 #Salmon - Katie
 ##limma
