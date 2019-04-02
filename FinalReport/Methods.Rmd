@@ -14,5 +14,23 @@ This project utilized 12 pipeline to detect differentlially expressed genes (Tab
 
 The second portion of the pipeline was the use of a program to detext differential expression of genes. Again, one of four programs were used (Table). This used a metadata file as well as a file of transciptomic data. These programs were also run though a graphical uner interface in DEBrowser, launched through the R package DEBrowser. Parameters used include: an adjusted p value of 0.01, two fold change. A Trimmed Mean of M-values (TMM) normalization was applied. The MA plots show all genes. 
 
+Alligners:
 
-Please feel free to edit!
+  Kallisto
+
+  bowtie2
+
+  Salmon
+
+  Sailfish
+  
+DEBrowser:
+
+  DESeq2
+  
+  lima
+  
+  edgeR
+  
+  
+
