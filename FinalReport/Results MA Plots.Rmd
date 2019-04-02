@@ -192,7 +192,7 @@ DE_by_program
 ```
 
 #Overall Summary:
-In conclusion, various pipelines produce varying results. When looking at DE Programs it seems like Kallisto generally finds fewer differentially expressed genes. 
+In conclusion, various pipelines produce varying results. When looking at DE Programs it seems like Kallisto generally finds fewer differentially expressed genes. It looks like Salmon as an aligner was pretty good for 2/3 DE programs. It's interesting that since Salmon and Kallisto are so similar that a major difference was seen in DE transcripts for Limma (Limma-Salmon: most, Limma-Kallisto: least). 
 
 I have not notice a clear trend yet...
 
