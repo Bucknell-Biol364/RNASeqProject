@@ -19,6 +19,21 @@ Alligners:
   Kallisto
 
   bowtie2
+  
+  1) Use the RSEM-Bowtie2 tool
+  2) Set `rsem reference` to "Build rsem reference"
+  3) Set `reference fasta file` to the cdna.all.fa.gz file.
+  4) Set `reference name` to something like drosophila_rsem
+  5) Change `calculate expression with rsem` to "Just build rsem reference for latter rsem profiling"
+  6) Execute!
+  7) For each sample:
+      1) Use the RSEM-Bowtie2 tool
+      2) Set `rsem reference` to "rsem reference available from history"
+      3) Set `Sample name` to the appropriate name for the sample (e.g. "S2_DRSC_Untreated-1")
+      4) Set `Library type` to Single or Paired, as appropriate
+      5) Set `FASTQ file` to the matching file(s)
+      6) Set `Create bam results files` to "No BAM results files"
+      7) Profit.
 
   Salmon
 
@@ -29,6 +44,8 @@ Alligners:
     4) Select the gtf.gz file for the `File containing a mapping of transcripts to genes`
     5) Leave all of the other options alone.
     6) Execute!
+
+
   
 DEBrowser:
 1) Load the Count Data File and the Metadata File
