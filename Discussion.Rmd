@@ -1,0 +1,32 @@
+---
+title: "Discussion"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Conclusions:
+
+1. Aligners
+
+-comparisons (explain differences and similarities between them)
+
+[]Bowtie
+[]Kallisto
+[]Salmon
+[]Sailfish
+
+
+
+2. Differential Expression Programs
+
+*there should be more differences between these than between the aligners*
+
+-are there any consistent patterns in the aligners? (look at Ven Diagrams)
+-look at conservativeness between aligners
+
+[]Limma
+[]DESeq
+[]EdgeR
