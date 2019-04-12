@@ -19,6 +19,23 @@ Looking at the MA plots was helpful in determining the differences between the a
 
 The differences in the results of these aligners may be due to their methodology when they are mapping gene sequences. Both Bowtie2 and Sailfish are splice-aware aligners (method = slow), so the sequence reads were mapped directly to the reference genome. Salmon and Kallisto, on the other hand, are pseudo-aligners (method = fast), meaning that the reads are not directly aligned. Instead, they are determined based on their compatability with known transcripts. 
 
+MA plots: results should tell you what the relative sensitivity of the program
+each of the points represents one of the transcripts
+aligned them to drosophola 
+
+a = abundance of transcript (counts per million)
+genes on left = low abundance
+genes on right 
+
+m = fold change between the two samples
+if a sample is on the top half, it is more highly expressed in the RNAi treated
+if on the bo
+
+color dots indicate genes that met the cut off, significiantly different
+more dots = more sensitive, 
+
+challenge:
+
 
 []Bowtie
 []Kallisto
@@ -28,16 +45,23 @@ All genes with this aligner were expressed at lower levels than compared to the 
 
 []Sailfish
 
+look at venn 
 
-
+There were certain combinations that did not work, which is x and y. 
 
 2. Differential Expression Programs
 
 *there should be more differences between these than between the aligners*
 
 -are there any consistent patterns in the aligners? (look at Venn Diagrams)
--look at conservativeness between aligners
+-look at conservativeness between aligners (which is identifying the fewest genes) how do you tell what is too conservative or not 
+for bowtie 2, limma was the most conservative, followed by DESeq2, then EdgeR
+(numbers = number of differential genes )
+
+either certain aligners don't play well with certain programs, OR someone made a mistake
 
 []Limma
+for both limma and deseq2, the salmon aligner is throwing everything off 
 []DESeq
+it really matters what aligner you use for DESeq2
 []EdgeR
