@@ -14,8 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 -comparisons (explain differences and similarities between them)
 
 After running the data through the varying computer models, we found that the combination of the differential expression programs and the aligners used plays an important role in determining which genes were recognized as up- and down-regulated. Because the identification of differentially-expressed genes are highly dependent on the transcriptomics pipeline, this proves that RNA-Seq techniques differ and it is essential to try to figure out the differences and similarities between each pipeline and DE programs and why we would use a certain one over another. 
-fsd
+
 Looking at the MA plots was helpful in determining the differences between the aligners used. If genes were shown to be further towards the 1 and -1 on the y-axis, this meant that they were more differentially expressed. The MA plot results tells us what the relative sensitivity of the differential expression programs. 
+
+For the bowtie aligner, the abundance of the transcript varied with each DE program. When used with EdgeR and DESeq2, it seemed that Bowtie was more sensitive in its ability to represent the transcripts because there were more colored dots. When used with Limma, there were significantly fewer colored dots. 
+Analysing the Salmon aligner, we found that all of the genes were expressed at lower levels than compared to the other aligners. But, they were also spread out more across the x-axis. This means that they varied from low abundance to high abundance. 
 
 The differences in the results of these aligners may be due to their methodology when they are mapping gene sequences. Both Bowtie2 and Sailfish are splice-aware aligners (method = slow), so the sequence reads were mapped directly to the reference genome. Salmon and Kallisto, on the other hand, are pseudo-aligners (method = fast), meaning that the reads are not directly aligned. Instead, they are determined based on their compatability with known transcripts. 
 
@@ -24,7 +27,7 @@ each of the points represents one of the transcripts
 
 a = abundance of transcript (counts per million)
 genes on left = low abundance
-genes on right 
+genes on right = high abundance
 
 m = fold change between the two samples
 if a sample is on the top half, it is more highly expressed in the RNAi treated
@@ -36,11 +39,9 @@ more dots = more sensitive,
 challenge:
 
 
-[]Bowtie
+[x]Bowtie
 []Kallisto
-[]Salmon
-
-All genes with this aligner were expressed at lower levels than compared to the other aligners. But, they were also spread out more across the x-axis. 
+[x]Salmon
 
 []Sailfish
 
@@ -56,6 +57,7 @@ Looking at the venn diagrams, it is clear that there were certain combinations t
 for bowtie 2, limma was the most conservative, followed by DESeq2, then EdgeR
 (numbers = number of differential genes )
 
+It is difficult to determine what is too conservative or not conservative enough. This is one of the obstacles in RNA sequencing studies because 
 either certain aligners don't play well with certain programs, OR someone made a mistake
 
 []Limma
