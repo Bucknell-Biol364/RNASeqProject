@@ -44,6 +44,13 @@ Alligners:
       7) Profit.
 
   Salmon
+  1) Use the Salmon tool
+  2) Use a reference transcriptome from the history, and select "Drosophila_melanogaster.BDGP6.cdna.all.fa.gz"
+  3) Set the kmerLen to 21
+  4) Set the library to paired or single-end as appropriate and load the files.
+  5) Set the strandedness of the reads to unstranded (U)
+  6) Select "Drosophila_melanogaster.BDGP6.95.chr.gtf.gz" for the file containing a mapping of transcripts to genes.
+  7) Leave all of the other settings as their default values. Execute!
 
   Sailfish
     1) For `Select a reference transcriptome from your history or use a built-in index?` select "Use one from history".
