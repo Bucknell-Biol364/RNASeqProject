@@ -18,6 +18,13 @@ Alligners:
 
   Kallisto
 
+  1) Use the Kallisto quant tool
+  2) For `Reference transcriptome for quantification` select "Use a transcriptome from history".
+  3) For `FASTA reference transcriptome` select "Drosophila_melanogaster.BDGP6.cdna.all.fa.gz".
+  4) Set to Single-end or Paired as appropriate and load the FASTQ sample files.
+  5) Keep the default options for the other settings.
+  6) Kallisto will output two files called tabular and HDF5. The tabular file contains transcriptomic data and should be used in subsequent analyses on differential expression. The HDF5 file contains binary data and is not used here. 
+
   bowtie2
   
   1) Use the RSEM-Bowtie2 tool
