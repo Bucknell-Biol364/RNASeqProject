@@ -154,7 +154,16 @@ Here is my table.
 ```{r kallisto-deseq2 data table}
 read.csv("tables/kallistoDESeq_Sussman.csv", header=TRUE) 
 ```
+
 # Ian Vogel
+Pipeline: Sailfish + DeSeq2
+```{r sailfish-deseq2 MA Plot}
+knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png") 
+```
+
+```{r sailfish-deseq2 table}
+read.csv("Vogel_Sailfish_DESeq2.csv", header=TRUE)
+```
 
 # Katie Bille
 Here is my ma plot
