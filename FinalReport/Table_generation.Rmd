@@ -428,8 +428,9 @@ grid.arrange(grobs=combo_alignersvenn, ncol=2,
 dev.copy(png,'venn_figs/combo_aligner_venn.png')
 dev.off()
 ```
+Alligner Venn Diagrams Results:
 
-
+Bowtie2 and Salmon have an identical distribution of genes picked up by each DE program. With kallisto, Limma only picked up one differentially expressed gene. For sailfish and kallisto, DESeq2 picked up the most differentially expressed genes. For Bowtie2 and Salmon, EdgeR picked up the most differentially expressed genes. Bowtie2 and Salmon had far more genes picked up by all three expression programs than kallisto and sailfish. 
 
 ```{r Combing DE venn diagrams}
 #saved plots as png's in the code chunks they were created in
@@ -442,7 +443,9 @@ dev.copy(png,'venn_figs/combo_de_venn.png')
 dev.off()
 ```
 
+Differential Expression Venn Diagrams Results:
 
+Limma was the most conservative with the least total differentially expressed genes detected, DESeq2 was next most conservative, and EdgeR was least conservative. Limma only picked up a single differentially expressed gene with kallisto. DESeq2 only picked up two differentially expressed genes with Salmon. Only EdgeR picked up a significant amount of common genes for all four alligners. 
 
 ---------------------------------------------------------------
 
