@@ -74,7 +74,7 @@ sailfish_limma_table <- read.csv("tables/Ritter_sailfish_limma.table.csv", heade
 
 I'm updating my own section. My pipeline was Kallisto-Limma, and as you can see, I have a single down-regulated gene.
 
-```{r downregulated gene-picture} 
+```{r} 
 knitr::include_graphics("figures/Simpson.png") 
 ```
 
@@ -113,11 +113,11 @@ read.csv("tables/salmondeseq2.csv", header=TRUE)
 ```
 # Matt McGauley
 
-```{r Matt's figure} 
+```{r Matts figure} 
 knitr::include_graphics("figures/Bowtie2EdgeR_McGauley.png") 
 ```
 
-```{r Matt's data table}
+```{r Matts data table}
 read.csv("tables/Bowtie2EdgeR_McGauley.csv", header=TRUE) 
 ```
 
@@ -162,13 +162,13 @@ knitr::include_graphics("figures/Vogel_Sailfish_DESeq2_MAplot.png")
 ```
 
 ```{r sailfish-deseq2 table}
-read.csv("Vogel_Sailfish_DESeq2.csv", header=TRUE)
+read.csv("tables/Vogel_Sailfish_DESeq2.csv", header=TRUE)
 ```
 
 # Katie Bille
 Here is my ma plot
 ```{r bowtie2_deseq2 gene regulation}
-knitr::include_graphics("figures/bowtie2_deseq2_maplot2.png") 
+knitr::include_graphics("figures/bowtie2_deseq2_maplot.png") 
 ```
 
 Here is my table

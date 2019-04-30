@@ -13,11 +13,11 @@ output:
     toc_float: yes
 ---
 ```{r Tables Packages}
-if (!require("venn")) install.packages("venn"); library(venn)
-if (!require("VennDiagram")) install.packages("VennDiagram"); library(VennDiagram)
-if (!require("grid")) install.packages("grid"); library(grid)
-if (!require("gridExtra")) install.packages("gridExtra"); library(gridExtra)
-if (!require("dplyr")) install.packages("dplyr"); library(dplyr)
+if (!require("venn")) install.packages("venn", repos='http://cran.us.r-project.org'); library(venn)
+if (!require("VennDiagram")) install.packages("VennDiagram", repos='http://cran.us.r-project.org'); library(VennDiagram)
+if (!require("grid")) install.packages("grid", repos='http://cran.us.r-project.org'); library(grid)
+if (!require("gridExtra")) install.packages("gridExtra", repos='http://cran.us.r-project.org'); library(gridExtra)
+if (!require("dplyr")) install.packages("dplyr, repos='http://cran.us.r-project.org'"); library(dplyr)
 ```
 
 
